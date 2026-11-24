@@ -281,43 +281,57 @@
   </div>
 </div>
 
-<!-- BARRA SUPERIOR SIMPLES COM REDIRECIONAMENTO PARA PÁGINAS SEPARADAS -->
+  <!-- BARRA SUPERIOR SUPER CLEAN COM DROPDOWN DE PÁGINAS -->
 <header id="topbar">
   <a class="brand" href="index.html">
     <div class="brand-icon">12</div>
     <div>
       <span class="brand-title">Portal 12º RI – Mapa de Imóveis</span>
-      <span class="brand-sub">Atualizado em 24/11/2026, 20:36:38</span>
+      <span class="brand-sub">Atualizado em 24/11/2026, 20:41:25</span>
     </div>
   </a>
 
-  <nav class="nav-links">
-    <a class="nav-link active" href="index.html">🗺️ Mapa Principal</a>
-    <a class="nav-link caixa-highlight" href="caixa.html" target="_blank">🏦 Imóveis Buscados na Caixa ↗</a>
-    <a class="nav-link" href="intimacoes.html" target="_blank">⚖️ Intimações & Consolidados (60 dias) ↗</a>
-    <a class="nav-link" href="kanban.html" target="_blank">📌 Kanban de Oportunidades ↗</a>
-  </nav>
-
   <div class="top-actions">
     <span id="tempBadge" style="display:none;background:#fef7e0;border:1px solid #fde293;color:#b06000;padding:4px 8px;border-radius:12px;font-size:11px;font-weight:700"></span>
-    <button class="btn-sm btn-primary" onclick="abrirPopupBusca()">🔍 Resultados em Popup (<span id="topResCount">0</span>)</button>
+
+    <details class="acc-box" style="margin:0;position:relative;overflow:visible;background:#fff">
+      <summary style="padding:6px 12px;font-size:12.5px;border-radius:8px;gap:8px">
+        <span>📂 Módulos & Páginas</span>
+      </summary>
+      <div style="position:absolute;right:0;top:calc(100% + 6px);width:265px;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.18);padding:8px;z-index:3000">
+        <a class="page-shortcut" style="margin-top:0" href="caixa.html" target="_blank">
+          <span>🏦 Imóveis Buscados na Caixa</span><span>↗</span>
+        </a>
+        <a class="page-shortcut" href="intimacoes.html" target="_blank">
+          <span>⚖️ Intimações & Consolidados (60d)</span><span>↗</span>
+        </a>
+        <a class="page-shortcut" href="kanban.html" target="_blank">
+          <span>📌 Quadro Kanban de Oportunidades</span><span>↗</span>
+        </a>
+      </div>
+    </details>
+
+    <button class="btn-sm btn-primary" onclick="abrirPopupBusca()">🔍 Lista em Popup (<span id="topResCount">0</span>)</button>
     <button class="btn-sm" id="btnLock" title="Bloquear acesso com senha">🔒</button>
   </div>
 </header>
 
-<!-- CORPO PRINCIPAL (SOMENTE MAPA + BARRA LATERAL LIMPA) -->
+<!-- CORPO PRINCIPAL (SOMENTE MAPA + BARRA LATERAL SUPER CLEAN) -->
 <div id="main">
   <aside id="side">
-    <div class="box">
-      <div class="field">
+    <div class="box" style="border-bottom:none">
+      <div class="field" style="margin-bottom:10px">
         <input type="text" id="busca" placeholder="🔎 Buscar matrícula, endereço, condomínio, nº Caixa...">
       </div>
 
-      <!-- FILTRO RETRÁTIL: CAMADAS NO MAPA PRINCIPAL -->
+      <button class="open-popup-btn" style="margin-bottom:12px" onclick="abrirPopupBusca()">
+        <span>🔍 Ver Lista em Popup</span>
+        <span id="btnPopupCount" style="background:rgba(255,255,255,.22);padding:2px 9px;border-radius:12px;font-size:12px">0</span>
+      </button>
+
+      <!-- 1. CATEGORIA RETRÁTIL: CAMADAS NO MAPA -->
       <details class="acc-box">
-        <summary>
-          <span>🗺️ Camadas no Mapa Principal</span>
-        </summary>
+        <summary><span>🗺️ Camadas no Mapa Principal</span></summary>
         <div class="acc-body">
           <label class="layer">
             <input type="checkbox" data-g="AMBAS" checked>
@@ -340,11 +354,9 @@
         </div>
       </details>
 
-      <!-- FILTRO RETRÁTIL: FILTROS AVANÇADOS (CAIXA, BAIRRO, CONDOMÍNIO) -->
-      <details class="acc-box" style="margin-bottom:0">
-        <summary>
-          <span>⚙️ Filtros (Caixa, Bairro e Condomínio)</span>
-        </summary>
+      <!-- 2. CATEGORIA RETRÁTIL: FILTROS (CAIXA, BAIRRO, CONDOMÍNIO) -->
+      <details class="acc-box">
+        <summary><span>⚙️ Filtros (Caixa, Bairro e Condomínio)</span></summary>
         <div class="acc-body">
           <div class="field">
             <select id="filtroCaixa" style="border-color:#005ca9;font-weight:700;color:#005ca9;background:#f0f7ff">
@@ -370,38 +382,35 @@
           </div>
         </div>
       </details>
-    </div>
 
-    <div class="box">
-      <h3>Resumo do Filtro</h3>
-      <div class="stats">
-        <div class="stat"><b id="s_n">0</b><span>imóveis no mapa</span></div>
-        <div class="stat"><b id="s_cx_n" style="color:var(--caixa)">0</b><span>à venda na Caixa</span></div>
-        <div class="stat"><b id="s_arr" style="color:var(--caixa)">–</b><span>soma arrematação</span></div>
-        <div class="stat"><b id="s_roi" style="color:var(--green)">–</b><span>média % lucro (ROI)</span></div>
-      </div>
-      <div style="margin-top:12px">
-        <button class="open-popup-btn" onclick="abrirPopupBusca()">
-          <span>🔍 Ver Lista em Popup</span>
-          <span id="btnPopupCount" style="background:rgba(255,255,255,.22);padding:2px 9px;border-radius:12px;font-size:12px">0</span>
-        </button>
-      </div>
-    </div>
+      <!-- 3. CATEGORIA RETRÁTIL: RESUMO FINANCEIRO & LUCRO -->
+      <details class="acc-box">
+        <summary><span>📊 Resumo Financeiro & Lucro</span></summary>
+        <div class="acc-body">
+          <div class="stats">
+            <div class="stat"><b id="s_n">0</b><span>imóveis no mapa</span></div>
+            <div class="stat"><b id="s_cx_n" style="color:var(--caixa)">0</b><span>à venda na Caixa</span></div>
+            <div class="stat"><b id="s_arr" style="color:var(--caixa)">–</b><span>soma arrematação</span></div>
+            <div class="stat"><b id="s_roi" style="color:var(--green)">–</b><span>média % lucro (ROI)</span></div>
+          </div>
+        </div>
+      </details>
 
-    <div class="box" style="border-bottom:none">
-      <h3>Abrir em Outra Página</h3>
-      <a class="page-shortcut" href="caixa.html" target="_blank">
-        <span>🏦 Todos Imóveis Buscados na Caixa</span>
-        <span>↗</span>
-      </a>
-      <a class="page-shortcut" href="intimacoes.html" target="_blank">
-        <span>⚖️ Intimações & Consolidados (60d)</span>
-        <span>↗</span>
-      </a>
-      <a class="page-shortcut" href="kanban.html" target="_blank">
-        <span>📌 Quadro Kanban de Oportunidades</span>
-        <span>↗</span>
-      </a>
+      <!-- 4. CATEGORIA RETRÁTIL: OUTRAS PÁGINAS DO PORTAL -->
+      <details class="acc-box">
+        <summary><span>🚀 Abrir em Outra Página</span></summary>
+        <div class="acc-body">
+          <a class="page-shortcut" style="margin-top:0" href="caixa.html" target="_blank">
+            <span>🏦 Imóveis Buscados na Caixa</span><span>↗</span>
+          </a>
+          <a class="page-shortcut" href="intimacoes.html" target="_blank">
+            <span>⚖️ Intimações & Consolidados (60d)</span><span>↗</span>
+          </a>
+          <a class="page-shortcut" href="kanban.html" target="_blank">
+            <span>📌 Quadro Kanban de Oportunidades</span><span>↗</span>
+          </a>
+        </div>
+      </details>
     </div>
   </aside>
 
@@ -558,12 +567,13 @@ L.control.layers({
   'Google Satélite': gSat,
   'Google Terreno': gTerrain,
   'OpenStreetMap': osm
-}, null, { position: 'topright', collapsed: false }).addTo(map);
+}, null, { position: 'topright', collapsed: true }).addTo(map);
 
 const lg = L.control({ position: 'bottomright' });
 lg.onAdd = () => {
   const d = L.DomUtil.create('div', 'legend');
-  d.innerHTML = Object.keys(COR).map(k => `<div><span class="dot" style="background:${COR[k]}"></span>${NOME[k]}</div>`).join('');
+  d.style.padding = '0';
+  d.innerHTML = `<details class="acc-box" style="margin:0;border:none"><summary style="padding:7px 11px;font-size:11.5px;background:#fff;border-radius:8px">🎨 Legenda do Mapa</summary><div style="padding:8px 11px;border-top:1px solid #eee">${Object.keys(COR).map(k => `<div><span class="dot" style="background:${COR[k]}"></span>${NOME[k]}</div>`).join('')}</div></details>`;
   return d;
 };
 lg.addTo(map);
@@ -883,60 +893,70 @@ function abrirFicha(d, voar = true) {
           <div id="simLucroPct" style="font-size:16px;font-weight:800;color:#137333">+${roiInic}%</div>
         </div>
       </div>
-      <div class="portal-btns">
-        <a class="portal-btn" href="https://www.google.com/search?q=site:zapimoveis.com.br+${termoPortal}+venda" target="_blank">🟧 Zap Imóveis</a>
-        <a class="portal-btn" href="https://www.google.com/search?q=site:quintoandar.com.br+${termoPortal}+venda" target="_blank">🟦 QuintoAndar</a>
-        <a class="portal-btn" href="https://www.google.com/search?q=site:vivareal.com.br+${termoPortal}+venda" target="_blank">🟩 VivaReal</a>
-        <a class="portal-btn" href="https://www.google.com/search?q=site:lopes.com.br+${termoPortal}+venda" target="_blank">🟥 Lopes</a>
-        <a class="portal-btn" href="https://www.google.com/search?q=site:imovelweb.com.br+${termoPortal}+venda" target="_blank">🟨 Imovelweb</a>
-        <a class="portal-btn" style="background:#e8f0fe;color:#1a73e8;border-color:#1a73e8" href="https://www.google.com/search?q=(site:zapimoveis.com.br+OR+site:vivareal.com.br+OR+site:quintoandar.com.br+OR+site:imovelweb.com.br+OR+site:lopes.com.br)+${termoPortal}+venda" target="_blank">🔍 Todas Redes</a>
-      </div>
+      <details class="acc-box" style="margin:8px 0 0;background:#fff">
+        <summary style="padding:7px 10px;font-size:11.5px">🔎 Consultar Anúncios nas 5 Redes Imobiliárias</summary>
+        <div class="acc-body" style="padding:8px">
+          <div class="portal-btns" style="margin-top:0">
+            <a class="portal-btn" href="https://www.google.com/search?q=site:zapimoveis.com.br+${termoPortal}+venda" target="_blank">🟧 Zap Imóveis</a>
+            <a class="portal-btn" href="https://www.google.com/search?q=site:quintoandar.com.br+${termoPortal}+venda" target="_blank">🟦 QuintoAndar</a>
+            <a class="portal-btn" href="https://www.google.com/search?q=site:vivareal.com.br+${termoPortal}+venda" target="_blank">🟩 VivaReal</a>
+            <a class="portal-btn" href="https://www.google.com/search?q=site:lopes.com.br+${termoPortal}+venda" target="_blank">🟥 Lopes</a>
+            <a class="portal-btn" href="https://www.google.com/search?q=site:imovelweb.com.br+${termoPortal}+venda" target="_blank">🟨 Imovelweb</a>
+            <a class="portal-btn" style="background:#e8f0fe;color:#1a73e8;border-color:#1a73e8" href="https://www.google.com/search?q=(site:zapimoveis.com.br+OR+site:vivareal.com.br+OR+site:quintoandar.com.br+OR+site:imovelweb.com.br+OR+site:lopes.com.br)+${termoPortal}+venda" target="_blank">🔍 Todas Redes</a>
+          </div>
+        </div>
+      </details>
     </div>
 
-    <div class="fin-grid">
-      <div class="fin-card" style="border-left:4px solid #c5221f">
-        <small>Dívida na Intimação</small>
-        <b style="color:#c5221f">${brl(d.dv)}</b>
-        <span>${d.db ? 'Base: ' + dt(d.db) : 'Sem intimação 2026'}</span>
+    <details class="acc-box">
+      <summary><span>⚖️ Dados 12º RI (Dívida, Avaliação & Datas)</span></summary>
+      <div class="acc-body">
+        <div class="fin-grid">
+          <div class="fin-card" style="border-left:4px solid #c5221f">
+            <small>Dívida na Intimação</small>
+            <b style="color:#c5221f">${brl(d.dv)}</b>
+            <span>${d.db ? 'Base: ' + dt(d.db) : 'Sem intimação 2026'}</span>
+          </div>
+          <div class="fin-card" style="border-left:4px solid var(--green)">
+            <small>Avaliação Prefeitura</small>
+            <b style="color:var(--green)">${brl(d.vp)}</b>
+            <span>${d.im ? 'IPTU: ' + d.im : 'Base ITBI'}</span>
+          </div>
+        </div>
+        <table class="kv-table">
+          <tr><td>Data da Intimação</td><td>${dt(d.di)} ${d.pi ? `(Prot. ${d.pi})` : ''}</td></tr>
+          <tr><td>Data da Consolidação</td><td>${dt(d.dc)} ${d.pc ? `(Prot. ${d.pc})` : ''}</td></tr>
+          ${d.ddc != null ? `<tr><td>Consolidado há</td><td><b>${d.ddc} dias</b> ${d.u60 ? '🔥 (< 60 dias)' : ''}</td></tr>` : ''}
+        </table>
       </div>
-      <div class="fin-card" style="border-left:4px solid var(--green)">
-        <small>Avaliação Prefeitura</small>
-        <b style="color:var(--green)">${brl(d.vp)}</b>
-        <span>${d.im ? 'IPTU: ' + d.im : 'Base ITBI'}</span>
-      </div>
-    </div>
-
-    <div class="section-card">
-      <h4>📅 Datas (12º RI)</h4>
-      <table class="kv-table">
-        <tr><td>Data da Intimação</td><td>${dt(d.di)} ${d.pi ? `(Prot. ${d.pi})` : ''}</td></tr>
-        <tr><td>Data da Consolidação</td><td>${dt(d.dc)} ${d.pc ? `(Prot. ${d.pc})` : ''}</td></tr>
-        ${d.ddc != null ? `<tr><td>Consolidado há</td><td><b>${d.ddc} dias</b> ${d.u60 ? '🔥 (< 60 dias)' : ''}</td></tr>` : ''}
-      </table>
-    </div>
+    </details>
 
     ${irmaos.length > 1 ? `
-    <div class="section-card">
-      <h4>🏢 Unidades neste Condomínio (${irmaos.length})</h4>
-      <div class="predio-units">
-        ${irmaos.map(u => `
-          <div class="unit-item ${u._id === d._id ? 'active' : ''}" onclick="abrirFichaPorId(${u._id}, false)">
-            <span><span class="dot" style="background:${COR[u.g]};width:8px;height:8px;display:inline-block"></span> <b>Mat. ${u.m}</b> · ${u.e.split(',').slice(1, 3).join(',')}</span>
-            <span style="color:${u.cx ? '#005ca9' : '#137333'};font-weight:700">${u.cx ? '🏦 ' + brl(u.cx.pr) : brl(u.vp || u.dv)}</span>
-          </div>
-        `).join('')}
+    <details class="acc-box">
+      <summary><span>🏢 Unidades neste Condomínio (${irmaos.length})</span></summary>
+      <div class="acc-body">
+        <div class="predio-units" style="margin-top:0">
+          ${irmaos.map(u => `
+            <div class="unit-item ${u._id === d._id ? 'active' : ''}" onclick="abrirFichaPorId(${u._id}, false)">
+              <span><span class="dot" style="background:${COR[u.g]};width:8px;height:8px;display:inline-block"></span> <b>Mat. ${u.m}</b> · ${u.e.split(',').slice(1, 3).join(',')}</span>
+              <span style="color:${u.cx ? '#005ca9' : '#137333'};font-weight:700">${u.cx ? '🏦 ' + brl(u.cx.pr) : brl(u.vp || u.dv)}</span>
+            </div>
+          `).join('')}
+        </div>
       </div>
-    </div>` : ''}
+    </details>` : ''}
 
-    <div class="section-card">
-      <h4 style="margin:0 0 6px">🗺️ Google Maps & Street View</h4>
-      <iframe class="gmap-frame" loading="lazy"
-        src="https://maps.google.com/maps?q=${d.la},${d.lo}&hl=pt-BR&z=18&t=h&output=embed"></iframe>
-      <div class="ext-links">
-        <a class="primary" href="https://www.google.com/maps/search/?api=1&query=${qEnd}" target="_blank">🗺️ Google Maps ↗</a>
-        <a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${d.la},${d.lo}" target="_blank">🚶 Street View 360° ↗</a>
+    <details class="acc-box">
+      <summary><span>🗺️ Google Maps & Street View 360°</span></summary>
+      <div class="acc-body">
+        <iframe class="gmap-frame" loading="lazy"
+          src="https://maps.google.com/maps?q=${d.la},${d.lo}&hl=pt-BR&z=18&t=h&output=embed"></iframe>
+        <div class="ext-links">
+          <a class="primary" href="https://www.google.com/maps/search/?api=1&query=${qEnd}" target="_blank">🗺️ Google Maps ↗</a>
+          <a href="https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${d.la},${d.lo}" target="_blank">🚶 Street View 360° ↗</a>
+        </div>
       </div>
-    </div>
+    </details>
   `;
 
   if (voar) {
