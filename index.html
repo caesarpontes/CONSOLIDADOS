@@ -112,6 +112,16 @@
   }
   .box { padding: 14px 16px; border-bottom: 1px solid var(--border); }
   .box h3 { margin: 0 0 10px; font-size: 11px; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); font-weight: 700; }
+  details.acc-box { border: 1px solid var(--border); border-radius: 9px; background: #f8f9fa; margin-bottom: 8px; overflow: hidden; }
+  details.acc-box summary {
+    padding: 9px 12px; font-size: 12.5px; font-weight: 700; color: #202124; cursor: pointer;
+    list-style: none; display: flex; align-items: center; justify-content: space-between; user-select: none;
+  }
+  details.acc-box summary::-webkit-details-marker { display: none; }
+  details.acc-box summary::after { content: '▾'; font-size: 13px; color: var(--muted); transition: transform .15s; }
+  details.acc-box[open] summary { background: #e8f0fe; color: var(--primary); border-bottom: 1px solid #d2e3fc; }
+  details.acc-box[open] summary::after { transform: rotate(180deg); color: var(--primary); }
+  .acc-body { padding: 10px 12px; background: #fff; }
   label.layer { display: flex; align-items: center; gap: 8px; padding: 5px 0; cursor: pointer; font-size: 13px; user-select: none; }
   .dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.25); flex: none; }
   .cnt { margin-left: auto; font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 10px; background: #f1f3f4; color: #3c4043; }
@@ -277,7 +287,7 @@
     <div class="brand-icon">12</div>
     <div>
       <span class="brand-title">Portal 12º RI – Mapa de Imóveis</span>
-      <span class="brand-sub">Atualizado em 24/11/2026, 20:14:13</span>
+      <span class="brand-sub">Atualizado em 24/11/2026, 20:36:38</span>
     </div>
   </a>
 
@@ -299,54 +309,67 @@
 <div id="main">
   <aside id="side">
     <div class="box">
-      <h3>Camadas no Mapa</h3>
-      <label class="layer">
-        <input type="checkbox" data-g="AMBAS" checked>
-        <span class="dot" style="background:var(--ambas)"></span>
-        <span><b>Consolidados</b> (Intim. 2026)</span>
-        <span class="cnt" id="c_AMBAS">0</span>
-      </label>
-      <label class="layer">
-        <input type="checkbox" data-g="SO_CONS" checked>
-        <span class="dot" style="background:var(--so-cons)"></span>
-        <span><b>Consolidados</b> (Intim. anterior)</span>
-        <span class="cnt" id="c_SO_CONS">0</span>
-      </label>
-      <label class="layer">
-        <input type="checkbox" data-g="SO_INT">
-        <span class="dot" style="background:var(--so-int)"></span>
-        <span>Só Intimados</span>
-        <span class="cnt" id="c_SO_INT">0</span>
-      </label>
-    </div>
+      <div class="field">
+        <input type="text" id="busca" placeholder="🔎 Buscar matrícula, endereço, condomínio, nº Caixa...">
+      </div>
 
-    <div class="box">
-      <h3>Filtros Rápidos</h3>
-      <div class="field">
-        <input type="text" id="busca" placeholder="🔎 Matrícula, endereço, condomínio, nº Caixa...">
-      </div>
-      <div class="field">
-        <select id="filtroCaixa" style="border-color:#005ca9;font-weight:700;color:#005ca9;background:#f0f7ff">
-          <option value="">🏦 Status Caixa / Leilão: Todos</option>
-          <option value="venda">🔥 Já à Venda no Site da Caixa (395)</option>
-          <option value="preleilao60">⏱️ Consolidados últimos 60 dias (Pré-Leilão)</option>
-          <option value="preleilao_sem_cx">🎯 Consolidados &lt; 60d AINDA FORA da Caixa</option>
-          <option value="direta">💰 Caixa: Venda Direta Online</option>
-          <option value="licit">🔨 Caixa: Leilão / Venda Online</option>
-        </select>
-      </div>
-      <div class="field">
-        <select id="bairro"><option value="">Todos os bairros</option></select>
-      </div>
-      <div class="field">
-        <select id="filtroPredio"><option value="">Todos os condomínios / prédios</option></select>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
-        <label class="layer" style="font-size:12px;padding:0">
-          <input type="checkbox" id="pinosSoltos"> 📍 Soltar todos os pinos
-        </label>
-        <button class="btn-sm" id="btnLimpar" style="padding:3px 9px;font-size:11.5px">Limpar</button>
-      </div>
+      <!-- FILTRO RETRÁTIL: CAMADAS NO MAPA PRINCIPAL -->
+      <details class="acc-box">
+        <summary>
+          <span>🗺️ Camadas no Mapa Principal</span>
+        </summary>
+        <div class="acc-body">
+          <label class="layer">
+            <input type="checkbox" data-g="AMBAS" checked>
+            <span class="dot" style="background:var(--ambas)"></span>
+            <span><b>Consolidados</b> (c/ intimação 2026)</span>
+            <span class="cnt" id="c_AMBAS">0</span>
+          </label>
+          <label class="layer">
+            <input type="checkbox" data-g="SO_CONS" checked>
+            <span class="dot" style="background:var(--so-cons)"></span>
+            <span><b>Consolidados</b> (intimação anterior)</span>
+            <span class="cnt" id="c_SO_CONS">0</span>
+          </label>
+          <label class="layer">
+            <input type="checkbox" data-g="SO_INT">
+            <span class="dot" style="background:var(--so-int)"></span>
+            <span>Só Intimados</span>
+            <span class="cnt" id="c_SO_INT">0</span>
+          </label>
+        </div>
+      </details>
+
+      <!-- FILTRO RETRÁTIL: FILTROS AVANÇADOS (CAIXA, BAIRRO, CONDOMÍNIO) -->
+      <details class="acc-box" style="margin-bottom:0">
+        <summary>
+          <span>⚙️ Filtros (Caixa, Bairro e Condomínio)</span>
+        </summary>
+        <div class="acc-body">
+          <div class="field">
+            <select id="filtroCaixa" style="border-color:#005ca9;font-weight:700;color:#005ca9;background:#f0f7ff">
+              <option value="">🏦 Status Caixa / Leilão: Todos</option>
+              <option value="venda">🔥 Já à Venda no Site da Caixa (395)</option>
+              <option value="preleilao60">⏱️ Consolidados últimos 60 dias (Pré-Leilão)</option>
+              <option value="preleilao_sem_cx">🎯 Consolidados &lt; 60d AINDA FORA da Caixa</option>
+              <option value="direta">💰 Caixa: Venda Direta Online</option>
+              <option value="licit">🔨 Caixa: Leilão / Venda Online</option>
+            </select>
+          </div>
+          <div class="field">
+            <select id="bairro"><option value="">Todos os bairros</option></select>
+          </div>
+          <div class="field">
+            <select id="filtroPredio"><option value="">Todos os condomínios / prédios</option></select>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
+            <label class="layer" style="font-size:12px;padding:0">
+              <input type="checkbox" id="pinosSoltos"> 📍 Soltar todos os pinos
+            </label>
+            <button class="btn-sm" id="btnLimpar" style="padding:3px 9px;font-size:11.5px">Limpar</button>
+          </div>
+        </div>
+      </details>
     </div>
 
     <div class="box">
