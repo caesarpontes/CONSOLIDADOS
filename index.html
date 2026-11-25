@@ -4,29 +4,44 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Portal 12º RI – Mapa de Imóveis & Arrematação Caixa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <style>
+  /* Hallmark · v2.0.0 · Impeccable · UI/UX Pro Max · Diagram Design */
   :root {
-    --primary: #1a73e8;
-    --primary-dark: #1557b0;
-    --caixa: #005ca9;
-    --caixa-orange: #f39200;
-    --ambas: #d93025;
-    --so-int: #1a73e8;
-    --so-cons: #70757a;
-    --bg: #f4f6f9;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --caixa: #0b5cab;
+    --caixa-orange: #d97706;
+    --ambas: #c83e31;
+    --so-int: #2563eb;
+    --so-cons: #64748b;
+    --bg: #f6f5f2;
+    --paper-2: #efede8;
     --card: #ffffff;
-    --border: #dadce0;
-    --text: #202124;
-    --muted: #5f6368;
-    --green: #137333;
-    --green-bg: #e6f4ea;
+    --border: rgba(45, 49, 66, 0.11);
+    --text: #1e2430;
+    --muted: #5a6578;
+    --green: #0f766e;
+    --green-bg: #ecfdf5;
+    --accent-coral: #bf4520;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --shadow-soft: 0 4px 20px -2px rgba(30, 36, 48, 0.06), 0 1px 3px -1px rgba(30, 36, 48, 0.04);
   }
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: 'Google Sans', 'Segoe UI', Roboto, Arial, sans-serif; height: 100vh; display: flex; flex-direction: column; color: var(--text); background: var(--bg); overflow: hidden; }
+  ::selection { background: rgba(37, 99, 235, 0.14); color: var(--text); }
+  ::-webkit-scrollbar { width: 7px; height: 7px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  body { margin: 0; font-family: var(--font-sans); font-variant-numeric: tabular-nums; height: 100vh; display: flex; flex-direction: column; color: var(--text); background: var(--bg); overflow: hidden; -webkit-font-smoothing: antialiased; }
 
   /* TELA DE SENHA */
   #authGate {
@@ -287,7 +302,7 @@
     <div class="brand-icon">12</div>
     <div>
       <span class="brand-title">Portal 12º RI – Mapa de Imóveis</span>
-      <span class="brand-sub">Atualizado em 25/11/2026, 08:25:52</span>
+      <span class="brand-sub">Atualizado em 25/11/2026, 08:40:39</span>
     </div>
   </a>
 
@@ -400,17 +415,71 @@
         </div>
       </details>
 
-      <!-- 4. CATEGORIA RETRÁTIL: OUTRAS PÁGINAS DO PORTAL -->
+      <!-- 4. CATEGORIA RETRÁTIL: DIAGRAMA DO FUNIL (DIAGRAM DESIGN SKILL) -->
+      <details class="acc-box">
+        <summary><span>📐 Diagrama do Funil (Lei 9.514/97)</span></summary>
+        <div class="acc-body" style="padding:10px;background:#faf9f6">
+          <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">
+            PIPELINE · 12º RI → LEILÃO CAIXA
+          </div>
+          <svg viewBox="0 0 280 230" width="100%" style="display:block;overflow:visible;font-family:var(--font-sans)">
+            <defs>
+              <marker id="ddArr" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#5a6578"/>
+              </marker>
+              <marker id="ddArrCoral" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#bf4520"/>
+              </marker>
+            </defs>
+            <!-- Node 1: Intimações -->
+            <g style="cursor:pointer" onclick="window.location.href='intimacoes.html'">
+              <rect x="6" y="4" width="268" height="40" rx="8" fill="#ffffff" stroke="rgba(45,49,66,0.18)" stroke-width="1.2"/>
+              <text x="16" y="21" font-size="11" font-weight="700" fill="#1e2430">1. Intimação Fiduciária (12º RI)</text>
+              <text x="16" y="34" font-size="9.5" font-family="JetBrains Mono, monospace" fill="#5a6578">1.254 só intimados · prazo 15 dias purgação</text>
+              <text x="262" y="26" font-size="11" font-weight="800" fill="#2563eb" text-anchor="end">1.254</text>
+            </g>
+            <line x1="140" y1="44" x2="140" y2="60" stroke="#5a6578" stroke-width="1.2" marker-end="url(#ddArr)"/>
+
+            <!-- Node 2: Consolidação < 60d (Focal Accent Coral) -->
+            <g style="cursor:pointer" onclick="window.location.href='intimacoes.html'">
+              <rect x="6" y="62" width="268" height="44" rx="8" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="1.6"/>
+              <text x="16" y="80" font-size="11" font-weight="700" fill="#111111">2. Consolidação (&lt; 60 dias · Art. 27)</text>
+              <text x="16" y="95" font-size="9.5" font-family="JetBrains Mono, monospace" fill="#bf4520">Janela obrigatória pré-leilão Caixa</text>
+              <text x="262" y="86" font-size="12" font-weight="800" fill="#bf4520" text-anchor="end">790</text>
+            </g>
+            <line x1="140" y1="106" x2="140" y2="122" stroke="#bf4520" stroke-width="1.4" marker-end="url(#ddArrCoral)"/>
+
+            <!-- Node 3: Vitrine Caixa -->
+            <g style="cursor:pointer" onclick="window.location.href='caixa.html'">
+              <rect x="6" y="124" width="268" height="44" rx="8" fill="#ffffff" stroke="#0b5cab" stroke-width="1.4"/>
+              <text x="16" y="142" font-size="11" font-weight="700" fill="#0b5cab">3. Leilão SFI &amp; Venda Direta Caixa</text>
+              <text x="16" y="157" font-size="9.5" font-family="JetBrains Mono, monospace" fill="#5a6578">395 do 12º RI + 3.188 RJ ativos c/ desconto</text>
+              <text x="262" y="148" font-size="12" font-weight="800" fill="#0b5cab" text-anchor="end">395</text>
+            </g>
+            <line x1="140" y1="168" x2="140" y2="184" stroke="#5a6578" stroke-width="1.2" marker-end="url(#ddArr)"/>
+
+            <!-- Node 4: Revenda / Mercado -->
+            <g style="cursor:pointer" onclick="window.location.href='kanban.html'">
+              <rect x="6" y="186" width="268" height="40" rx="8" fill="#ecfdf5" stroke="#0f766e" stroke-width="1.2"/>
+              <text x="16" y="203" font-size="11" font-weight="700" fill="#0f766e">4. Revenda Mercado (5 Portais)</text>
+              <text x="16" y="216" font-size="9.5" font-family="JetBrains Mono, monospace" fill="#0f766e">Zap · QuintoAndar · VivaReal · Lopes · Imovelweb</text>
+              <text x="262" y="208" font-size="11" font-weight="800" fill="#0f766e" text-anchor="end">+ROI</text>
+            </g>
+          </svg>
+        </div>
+      </details>
+
+      <!-- 5. CATEGORIA RETRÁTIL: OUTRAS PÁGINAS DO PORTAL -->
       <details class="acc-box">
         <summary><span>🚀 Abrir em Outra Página</span></summary>
         <div class="acc-body">
-          <a class="page-shortcut" style="margin-top:0" href="caixa.html" target="_blank">
-            <span>🏦 Imóveis Buscados na Caixa</span><span>↗</span>
+          <a class="page-shortcut" style="margin-top:0" href="caixa.html">
+            <span>🏦 Vitrine Oportunidades Caixa</span><span>↗</span>
           </a>
-          <a class="page-shortcut" href="intimacoes.html" target="_blank">
+          <a class="page-shortcut" href="intimacoes.html">
             <span>⚖️ Intimações & Consolidados (60d)</span><span>↗</span>
           </a>
-          <a class="page-shortcut" href="kanban.html" target="_blank">
+          <a class="page-shortcut" href="kanban.html">
             <span>📌 Quadro Kanban de Oportunidades</span><span>↗</span>
           </a>
         </div>

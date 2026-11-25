@@ -4,19 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kanban de Oportunidades – 12º RI & Leilão Caixa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  /* Hallmark · v2.0.0 · Impeccable · UI/UX Pro Max · Diagram Design */
   :root {
-    --primary: #1a73e8;
-    --caixa: #005ca9;
-    --bg: #f4f6f9;
-    --border: #dadce0;
-    --text: #202124;
-    --muted: #5f6368;
-    --green: #137333;
-    --green-bg: #e6f4ea;
+    --primary: #2563eb;
+    --caixa: #0b5cab;
+    --bg: #f6f5f2;
+    --border: rgba(45, 49, 66, 0.12);
+    --text: #1e2430;
+    --muted: #5a6578;
+    --green: #0f766e;
+    --green-bg: #ecfdf5;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: 'Google Sans', 'Segoe UI', Roboto, Arial, sans-serif; height: 100vh; display: flex; flex-direction: column; color: var(--text); background: var(--bg); overflow: hidden; }
+  body { margin: 0; font-family: var(--font-sans); font-variant-numeric: tabular-nums; height: 100vh; display: flex; flex-direction: column; color: var(--text); background: var(--bg); overflow: hidden; -webkit-font-smoothing: antialiased; }
 
   header {
     background: #fff; border-bottom: 1px solid var(--border); padding: 12px 24px;
