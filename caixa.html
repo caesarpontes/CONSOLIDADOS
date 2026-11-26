@@ -247,7 +247,7 @@
     <div class="brand-monogram">12</div>
     <div>
       <span class="brand-title">Vitrine de Oportunidades · Caixa Econômica Federal</span>
-      <span class="brand-sub">Leilão SFI · Venda Direta Online · Venda Online · Licitação Aberta · Atualizado em 26/11/2026, 09:24:29</span>
+      <span class="brand-sub">Leilão SFI · Venda Direta Online · Venda Online · Licitação Aberta · Atualizado em 26/11/2026, 12:05:21</span>
     </div>
   </a>
   <nav class="nav-strip">
@@ -259,64 +259,6 @@
 </header>
 
 <div class="container">
-  <!-- DIAGRAMA ARQUITETÔNICO DE MODALIDADES CAIXA (DIAGRAM DESIGN SKILL) -->
-  <details style="background:var(--color-cotton);border-radius:12px;padding:12px 18px;margin-bottom:18px;box-shadow:var(--edge-stock)">
-    <summary style="cursor:pointer;font-weight:600;font-size:13px;color:var(--color-ink);display:flex;align-items:center;justify-content:space-between;list-style:none">
-      <span>Diagrama Arquitetônico do Ciclo de Leilão &amp; Modalidades Caixa (Lei 9.514/97) — Clique para expandir</span>
-      <span style="font-family:var(--font-mono);font-size:11px;color:var(--color-accent)">Esquema SVG</span>
-    </summary>
-    <div style="margin-top:14px;padding:18px;background:#f5f5f5;border-radius:10px;border:1px solid rgba(45,49,66,0.12)">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;flex-wrap:wrap;gap:8px">
-        <span style="font-family:var(--font-serif);font-size:24px;color:#2d3142">Fluxo de Alienação Fiduciária: Da Consolidação no 12º RI à Compra na Caixa</span>
-        <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;color:#4f5d75">DIAGRAM DESIGN · PIPELINE SFI</span>
-      </div>
-      <svg viewBox="0 0 1100 140" width="100%" style="display:block;overflow:visible">
-        <defs>
-          <marker id="arSfi" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#4f5d75"/>
-          </marker>
-          <marker id="arCoral" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#bf4520"/>
-          </marker>
-        </defs>
-        <g onclick="window.location.href='intimacoes.html'" style="cursor:pointer">
-          <rect x="10" y="16" width="225" height="96" rx="8" fill="#ffffff" stroke="rgba(45,49,66,0.22)" stroke-width="1.2"/>
-          <text x="24" y="38" font-family="Geist Mono, monospace" font-size="9" fill="#5a6580">ETAPA 01 · 12º RI</text>
-          <text x="24" y="60" font-size="13" font-weight="600" fill="#2d3142">Consolidação (&lt; 60 dias)</text>
-          <text x="24" y="80" font-size="11" fill="#4f5d75">Art. 27 Lei 9.514/97 obriga</text>
-          <text x="24" y="96" font-size="11" fill="#4f5d75">leilão em até 60 dias</text>
-        </g>
-        <line x1="235" y1="64" x2="278" y2="64" stroke="#4f5d75" stroke-width="1.4" marker-end="url(#arSfi)"/>
-
-        <g onclick="setModalidade('Leilão SFI')" style="cursor:pointer">
-          <rect x="282" y="16" width="235" height="96" rx="8" fill="#ffffff" stroke="rgba(45,49,66,0.22)" stroke-width="1.2"/>
-          <text x="296" y="38" font-family="Geist Mono, monospace" font-size="9" fill="#5a6580">ETAPA 02 · EDITAL ÚNICO</text>
-          <text x="296" y="60" font-size="13" font-weight="600" fill="#2d3142">Leilão SFI (1º e 2º Leilão)</text>
-          <text x="296" y="80" font-size="11" fill="#4f5d75">1º: Valor de Avaliação</text>
-          <text x="296" y="96" font-size="11" fill="#4f5d75">2º: Valor da Dívida + Encargos</text>
-        </g>
-        <line x1="517" y1="64" x2="560" y2="64" stroke="#bf4520" stroke-width="1.6" marker-end="url(#arCoral)"/>
-
-        <g onclick="setModalidade('Venda Online')" style="cursor:pointer">
-          <rect x="564" y="16" width="240" height="96" rx="8" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="1.8"/>
-          <text x="578" y="38" font-family="Geist Mono, monospace" font-size="9" fill="#bf4520">ETAPA 03 · MAIOR DESCONTO</text>
-          <text x="578" y="60" font-size="13" font-weight="600" fill="#111111">Licitação / Venda Online</text>
-          <text x="578" y="80" font-size="11" fill="#2d3142">Disputa com cronômetro e</text>
-          <text x="578" y="96" font-size="11" font-weight="600" fill="#bf4520">descontos de 35% a 65%</text>
-        </g>
-        <line x1="804" y1="64" x2="847" y2="64" stroke="#bf4520" stroke-width="1.6" marker-end="url(#arCoral)"/>
-
-        <g onclick="setModalidade('Venda Direta Online')" style="cursor:pointer">
-          <rect x="851" y="16" width="238" height="96" rx="8" fill="rgba(15,110,86,0.08)" stroke="#0f6e56" stroke-width="1.4"/>
-          <text x="865" y="38" font-family="Geist Mono, monospace" font-size="9" fill="#0f6e56">ETAPA 04 · COMPRA IMEDIATA</text>
-          <text x="865" y="60" font-size="13" font-weight="600" fill="#0f6e56">Venda Direta Online</text>
-          <text x="865" y="80" font-size="11" fill="#1c1917">Sem disputa: o 1º proponente</text>
-          <text x="865" y="96" font-size="11" font-weight="600" fill="#0f6e56">arremata pelo preço mínimo</text>
-        </g>
-      </svg>
-    </div>
-  </details>
-
   <!-- SELETOR GROOVE DE ESCOPO -->
   <div class="scope-groove">
     <button class="scope-btn active" id="sc_12ri" onclick="setBase('12ri')">
