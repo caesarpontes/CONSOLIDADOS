@@ -247,7 +247,7 @@
     <div class="brand-monogram">12</div>
     <div>
       <span class="brand-title">Vitrine de Oportunidades · Caixa Econômica Federal</span>
-      <span class="brand-sub">Leilão SFI · Venda Direta Online · Venda Online · Licitação Aberta · Atualizado em 26/11/2026, 20:26:49</span>
+      <span class="brand-sub">Leilão SFI · Venda Direta Online · Venda Online · Licitação Aberta · Atualizado em 26/11/2026, 20:34:13</span>
     </div>
   </a>
   <nav class="nav-strip">
@@ -334,6 +334,7 @@
 
     <button class="btn-stock" id="btnToggleModo" onclick="alternarModo()">Ver em Tabela</button>
     <button class="btn-stock" onclick="exportarCSV()">Exportar CSV</button>
+    <button class="btn-stock" onclick="limparFiltros()">Limpar Filtros</button>
   </div>
 
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px">
@@ -542,7 +543,15 @@ function render() {
   const favs = getKanbanFavs();
 
   if (!modoTabela) {
-    document.getElementById('cardsGrid').innerHTML = fatia.map(x => {
+    if (!lista.length) {
+      document.getElementById('cardsGrid').innerHTML = `
+        <div style="grid-column:1/-1;padding:48px 24px;text-align:center;background:#fff;border-radius:12px;border:1px dashed var(--color-line)">
+          <div style="font-size:16px;font-weight:600;margin-bottom:8px">Nenhum imóvel encontrado para os filtros selecionados</div>
+          <div style="color:var(--color-muted);font-size:13px;margin-bottom:16px">Dica: os imóveis de Leilão SFI da Caixa exigem pagamento à vista. Se o filtro "Aceita Financiamento" estiver ativo, altere para "Financiamento: Todos".</div>
+          <button class="btn-stock" onclick="limparFiltros()">Limpar Filtros</button>
+        </div>`;
+    } else {
+      document.getElementById('cardsGrid').innerHTML = fatia.map(x => {
       const keyFav = x.m || x.id;
       const isFav = favs.has(String(keyFav));
       const termo = encodeURIComponent(`${x.c || x.e} ${x.b || 'Rio de Janeiro'}`);
@@ -630,8 +639,11 @@ function render() {
         </div>
       </div>`;
     }).join('');
+    }
   } else {
-    document.getElementById('tableBody').innerHTML = fatia.map(x => `
+    document.getElementById('tableBody').innerHTML = !lista.length ? `
+      <tr><td colspan="12" style="text-align:center;padding:36px;color:var(--color-muted);font-size:13px">Nenhum imóvel encontrado para os filtros selecionados. <button class="btn-stock" style="margin-left:8px" onclick="limparFiltros()">Limpar Filtros</button></td></tr>
+    ` : fatia.map(x => `
       <tr>
         <td style="font-family:var(--font-mono)"><b>${x.id}</b></td>
         <td style="font-family:var(--font-mono)">${x.m ? `<a href="index.html?mat=${x.m}" style="color:var(--color-ink)"><b>Mat. ${x.m}</b></a>` : 'Site Caixa RJ'}</td>
@@ -651,6 +663,18 @@ function render() {
       </tr>
     `).join('');
   }
+}
+
+function limparFiltros() {
+  document.getElementById('qEndereco').value = '';
+  document.getElementById('fBairro').value = '';
+  document.getElementById('fFinanc').value = '';
+  document.getElementById('fOrdem').value = 'preco_asc';
+  modalidadeFiltro = '';
+  document.querySelectorAll('.mod-card').forEach(el => el.classList.remove('active'));
+  document.getElementById('mod_ALL').classList.add('active');
+  page = 0;
+  render();
 }
 
 let seg = 300;
