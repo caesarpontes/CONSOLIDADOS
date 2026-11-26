@@ -3,248 +3,274 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vitrine de Oportunidades Caixa – Leilão SFI, Venda Direta, Venda Online & Lucro</title>
+<title>Vitrine de Oportunidades Caixa · 12º RI &amp; Leilão SFI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* Hallmark · v2.0.0 · Impeccable · UI/UX Pro Max · Diagram Design */
+  /* Hallmark · v2.0.0 · theme: coral (dealt 1/3, modern-minimal) · Impeccable · UI/UX Pro Max · Diagram Design */
   :root {
-    --primary: #2563eb;
-    --caixa: #0b5cab;
-    --caixa-dark: #073b70;
-    --caixa-orange: #d97706;
-    --bg: #f6f5f2;
-    --card: #ffffff;
-    --border: rgba(45, 49, 66, 0.12);
-    --text: #1e2430;
-    --muted: #5a6578;
-    --green: #0f766e;
-    --green-bg: #ecfdf5;
-    --red: #c83e31;
-    --accent-coral: #bf4520;
-    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --color-paper: #f6f4f0;
+    --color-paper-2: #efeae2;
+    --color-paper-3: #e5dfd5;
+    --color-cotton: #fcfbf9;
+    --color-ink: #1c1917;
+    --color-ink-2: #332e2a;
+    --color-muted: #6b635b;
+    --color-rule: rgba(28, 25, 23, 0.10);
+    --color-rule-strong: rgba(28, 25, 23, 0.18);
+    --color-accent: #bf4520;
+    --color-accent-tint: rgba(191, 69, 32, 0.08);
+    --color-caixa: #0f4c81;
+    --color-caixa-tint: rgba(15, 76, 129, 0.08);
+    --color-emerald: #0f6e56;
+    --color-emerald-tint: rgba(15, 110, 86, 0.09);
+    --color-ambas: #b8332a;
+    --font-sans: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-serif: 'Instrument Serif', Georgia, serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    --font-mono: 'Geist Mono', ui-monospace, monospace;
+    --edge-stock: inset 0 1px 0 rgba(255,255,255,0.9), 0 0 0 1px rgba(28, 25, 23, 0.10);
+    --cast-stock: 0 8px 24px -6px rgba(28, 25, 23, 0.09), 0 2px 6px -1px rgba(28, 25, 23, 0.04);
+    --press-groove: inset 1px 1.5px 3px rgba(28, 25, 23, 0.12), inset -1px -1px 0 rgba(255,255,255,0.85), 0 0 0 1px rgba(28, 25, 23, 0.08);
   }
   * { box-sizing: border-box; }
-  ::selection { background: rgba(11, 92, 171, 0.14); color: var(--text); }
-  body { margin: 0; font-family: var(--font-sans); font-variant-numeric: tabular-nums; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0; font-family: var(--font-sans); color: var(--color-ink);
+    background: var(--color-paper); -webkit-font-smoothing: antialiased;
+    font-variant-numeric: tabular-nums;
+  }
+  .ico { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.75; fill: none; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 
-  /* BARRA DE TOPO DO RADAR CAIXA */
+  /* BARRA DE RADAR CAIXA (INK BAR) */
   #radarBar {
-    background: linear-gradient(90deg, #003b73 0%, #005ca9 65%, #0d7337 100%);
-    color: #fff; padding: 10px 24px; display: flex; align-items: center; justify-content: space-between;
-    gap: 14px; flex-wrap: wrap;
-  }
-  .pulse {
-    display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #ff9800;
-    box-shadow: 0 0 0 4px rgba(255,152,0,.35); margin-right: 8px;
-  }
-
-  /* MENU SUPERIOR DE PÁGINAS */
-  header {
-    background: #fff; border-bottom: 1px solid var(--border); padding: 12px 24px;
+    background: var(--color-ink); color: var(--color-cotton); padding: 8px 24px;
     display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
-    position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    font-size: 12px;
   }
-  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
-  .brand-icon {
-    width: 38px; height: 38px; border-radius: 10px; background: var(--caixa); color: #fff;
-    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px;
+  .notif-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: #e06d44;
+    box-shadow: 0 0 0 3px rgba(224, 109, 68, 0.25); flex: none;
   }
-  .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
-  .nav-link {
-    padding: 7px 14px; border-radius: 20px; border: 1px solid var(--border);
-    background: #fff; color: #3c4043; font-size: 12.5px; font-weight: 600; text-decoration: none;
-  }
-  .nav-link:hover { background: #f1f3f4; }
-  .nav-link.active { background: #e8f0fe; color: var(--caixa); border-color: var(--caixa); font-weight: 700; }
 
-  .container { max-width: 1460px; margin: 0 auto; padding: 20px 24px; }
+  /* BARRA DE NAVEGAÇÃO SUPERIOR */
+  header {
+    background: var(--color-cotton); border-bottom: 1px solid var(--color-rule); padding: 10px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--color-ink); }
+  .brand-monogram {
+    width: 32px; height: 32px; border-radius: 7px; background: var(--color-ink); color: var(--color-cotton);
+    font-family: var(--font-serif); font-size: 19px; display: flex; align-items: center; justify-content: center;
+  }
+  .brand-title { font-size: 14.5px; font-weight: 600; letter-spacing: -0.015em; }
+  .brand-sub { font-family: var(--font-mono); font-size: 10.5px; color: var(--color-muted); display: block; }
 
-  /* SELETOR DE BASE (12º RI vs TODOS CAIXA RJ) */
-  .scope-bar {
-    display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; align-items: center;
+  .nav-strip {
+    display: flex; align-items: center; gap: 4px; background: var(--color-paper);
+    padding: 4px; border-radius: 10px; border: 1px solid var(--color-rule); flex-wrap: wrap;
+  }
+  .nav-tab {
+    padding: 6px 13px; border-radius: 7px; font-size: 12.5px; font-weight: 500;
+    color: var(--color-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 7px;
+  }
+  .nav-tab:hover { color: var(--color-ink); background: rgba(28, 25, 23, 0.04); }
+  .nav-tab.active {
+    background: var(--color-cotton); color: var(--color-ink); font-weight: 600;
+    box-shadow: var(--edge-stock), 0 1px 3px rgba(28, 25, 23, 0.06);
+  }
+
+  .container { max-width: 1440px; margin: 0 auto; padding: 24px; }
+
+  /* CONTROLES LETTERPRESS */
+  .btn-stock {
+    height: 36px; padding: 0 14px; border-radius: 8px; border: none;
+    background: var(--color-cotton); color: var(--color-ink); font-family: var(--font-sans);
+    font-size: 12.5px; font-weight: 600; cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    box-shadow: var(--edge-stock), 0 1px 2px rgba(28, 25, 23, 0.05);
+    transition: transform 150ms ease, box-shadow 150ms ease; white-space: nowrap;
+  }
+  .btn-stock:hover { transform: translateY(-1px); box-shadow: var(--edge-stock), var(--cast-stock); }
+  .btn-ink { background: var(--color-ink); color: var(--color-cotton); }
+  .btn-caixa { background: var(--color-caixa); color: #fff; }
+
+  /* SELETOR GROOVE (HALLMARK CORAL GROOVE CONTROL) */
+  .scope-groove {
+    display: inline-flex; gap: 6px; padding: 5px; border-radius: 12px;
+    background: var(--color-paper-2); box-shadow: var(--press-groove);
+    margin-bottom: 18px; flex-wrap: wrap;
   }
   .scope-btn {
-    padding: 10px 18px; border-radius: 10px; border: 1.5px solid var(--border); background: #fff;
-    font-size: 13px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
-    color: var(--text); transition: all .15s;
+    padding: 8px 16px; border-radius: 8px; border: none; background: transparent;
+    font-family: var(--font-sans); font-size: 13px; font-weight: 500; color: var(--color-muted);
+    cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 150ms ease;
   }
   .scope-btn.active {
-    background: var(--caixa); color: #fff; border-color: var(--caixa);
-    box-shadow: 0 4px 12px rgba(0,92,169,.25);
+    background: var(--color-cotton); color: var(--color-ink); font-weight: 600;
+    box-shadow: var(--edge-stock), 0 2px 6px rgba(28, 25, 23, 0.08);
   }
   .scope-cnt {
-    background: rgba(0,0,0,.08); padding: 2px 8px; border-radius: 10px; font-size: 12px;
+    font-family: var(--font-mono); font-size: 11px; padding: 2px 7px; border-radius: 5px;
+    background: rgba(28, 25, 23, 0.07); color: var(--color-ink-2);
   }
-  .scope-btn.active .scope-cnt { background: rgba(255,255,255,.22); color: #fff; }
+  .scope-btn.active .scope-cnt { background: var(--color-accent-tint); color: var(--color-accent); font-weight: 600; }
 
-  /* ABAS DE MODALIDADE DA CAIXA */
+  /* GRADE DE MODALIDADES EM LEDGER EDITORIAL */
   .mod-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 16px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; margin-bottom: 18px;
   }
   .mod-card {
-    background: #fff; border: 1.5px solid var(--border); border-radius: 12px; padding: 12px 15px;
-    cursor: pointer; transition: all .15s; display: flex; flex-direction: column; justify-content: space-between;
+    background: var(--color-cotton); border-radius: 11px; padding: 14px 16px;
+    cursor: pointer; box-shadow: var(--edge-stock), 0 1px 3px rgba(28, 25, 23, 0.04);
+    transition: transform 150ms ease, box-shadow 150ms ease;
   }
-  .mod-card:hover { border-color: var(--caixa); transform: translateY(-1px); }
+  .mod-card:hover { transform: translateY(-1px); box-shadow: var(--edge-stock), var(--cast-stock); }
   .mod-card.active {
-    border-color: var(--caixa); background: #f0f7ff; box-shadow: 0 4px 14px rgba(0,92,169,.14);
+    background: #fff; box-shadow: inset 0 0 0 1.5px var(--color-ink), var(--cast-stock);
   }
-  .mod-card small { font-size: 11px; text-transform: uppercase; color: var(--muted); font-weight: 700; }
-  .mod-card b { font-size: 21px; color: var(--caixa); margin: 3px 0; display: block; }
-  .mod-card span { font-size: 11.5px; color: var(--muted); }
+  .mod-card small { font-size: 12px; color: var(--color-muted); font-weight: 500; display: block; }
+  .mod-card b { font-family: var(--font-mono); font-size: 24px; font-weight: 600; color: var(--color-ink); margin: 4px 0 2px; display: block; }
+  .mod-card span { font-size: 11.5px; color: var(--color-muted); }
 
-  /* BARRA DE BUSCA POR ENDEREÇO E ORDENAÇÃO CRESCENTE/DECRESCENTE */
+  /* BARRA DE FILTROS & ORDENAÇÃO CRESCENTE / DECRESCENTE */
   .toolbar {
-    background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px;
-    display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr auto auto; gap: 10px; align-items: center;
-    margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    background: var(--color-cotton); border-radius: 12px; padding: 12px 14px;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.3fr auto auto; gap: 10px; align-items: center;
+    margin-bottom: 18px; box-shadow: var(--edge-stock), 0 1px 3px rgba(28, 25, 23, 0.03);
   }
-  @media (max-width: 1100px) {
-    .toolbar { grid-template-columns: 1fr 1fr; }
-  }
+  @media (max-width: 1100px) { .toolbar { grid-template-columns: 1fr 1fr; } }
   input[type=text], select {
-    width: 100%; padding: 9px 12px; border: 1px solid var(--border); border-radius: 8px;
-    font-size: 13px; background: #fff; color: var(--text); outline: none;
+    width: 100%; height: 38px; padding: 0 12px; border: 1px solid var(--color-rule-strong);
+    border-radius: 8px; font-family: var(--font-sans); font-size: 13px; background: #fff; color: var(--color-ink); outline: none;
   }
-  input[type=text]:focus, select:focus { border-color: var(--caixa); box-shadow: 0 0 0 2px rgba(0,92,169,.15); }
-  .btn {
-    padding: 9px 14px; border-radius: 8px; border: 1px solid var(--border); background: #fff;
-    font-size: 12.5px; font-weight: 600; cursor: pointer; text-decoration: none; color: var(--text);
-    display: inline-flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap;
-  }
-  .btn:hover { background: #f1f3f4; }
-  .btn-caixa { background: var(--caixa); color: #fff; border-color: var(--caixa); }
-  .btn-caixa:hover { background: var(--caixa-dark); }
-  .btn-orange { background: var(--caixa-orange); color: #fff; border-color: var(--caixa-orange); }
-  .btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+  input[type=text]:focus, select:focus { border-color: var(--color-accent); box-shadow: 0 0 0 3px var(--color-accent-tint); }
 
-  /* VITRINE DE CARDS ESTILO FICHA CAIXA (IGUAL À FOTO ENVIADA PELO USUÁRIO) */
+  /* CARDS DE OPORTUNIDADE (ESTILO FICHA CAIXA EM COTTON STATIONERY) */
   .cards-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 18px;
   }
   .opp-card {
-    background: #fff; border: 1.5px solid #d2e3fc; border-radius: 16px; padding: 16px;
-    box-shadow: 0 4px 14px rgba(0,0,0,.05); display: flex; flex-direction: column; gap: 12px;
-    transition: transform .15s, box-shadow .15s, border-color .15s;
+    background: var(--color-cotton); border-radius: 14px; padding: 18px;
+    box-shadow: var(--edge-stock), var(--cast-stock);
+    display: flex; flex-direction: column; gap: 12px;
+    transition: transform 160ms ease, box-shadow 160ms ease;
   }
   .opp-card:hover {
-    transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,92,169,.16); border-color: var(--caixa);
+    transform: translateY(-2px);
+    box-shadow: var(--edge-stock), 0 16px 36px -8px rgba(28, 25, 23, 0.14);
   }
-  .opp-top-tags {
-    display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;
-  }
+  .opp-top-tags { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
   .tag-etapa {
-    padding: 4px 11px; border-radius: 14px; font-size: 11.5px; font-weight: 700; color: #fff; background: var(--red);
+    padding: 4px 10px; border-radius: 6px; font-size: 11.5px; font-weight: 600; color: #fff; background: var(--color-ambas);
   }
   .mat-box {
     display: flex; align-items: center; justify-content: space-between;
-    background: #f8f9fa; border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px;
+    background: var(--color-paper); border: 1px solid var(--color-rule); border-radius: 10px; padding: 9px 13px;
   }
-  .mat-num { font-size: 17px; font-weight: 800; color: #202124; }
-  .end-title { font-size: 15px; font-weight: 800; color: #202124; margin: 0; line-height: 1.35; }
-  .end-sub { font-size: 12.5px; color: var(--muted); }
+  .mat-num { font-family: var(--font-mono); font-size: 17px; font-weight: 600; color: var(--color-ink); }
+  .end-title { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--color-ink); margin: 0; line-height: 1.35; }
+  .end-sub { font-size: 12.5px; color: var(--color-muted); margin-top: 3px; }
 
   .caixa-showcase {
-    border: 2px solid var(--caixa); border-radius: 12px; padding: 12px;
-    background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+    border: 1px solid var(--color-rule-strong); border-radius: 11px; padding: 13px;
+    background: #ffffff;
   }
   .caixa-showcase-head {
-    display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
   }
   .badge-desconto {
-    background: var(--caixa-orange); color: #fff; font-weight: 800; font-size: 11.5px;
-    padding: 3px 10px; border-radius: 12px;
+    background: var(--color-accent); color: #fff; font-family: var(--font-mono);
+    font-weight: 600; font-size: 11px; padding: 3px 9px; border-radius: 6px;
   }
   .caixa-photo {
-    width: 100%; height: 175px; object-fit: cover; border-radius: 9px; margin-bottom: 10px;
-    border: 1px solid #d2e3fc; background: #e8f0fe; display: block;
+    width: 100%; height: 175px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;
+    border: 1px solid var(--color-rule); background: var(--color-paper); display: block;
   }
-  .fin-pair {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;
+
+  /* LEDGER FINANCEIRO SEM BORDAS LATERAIS GROSSAS */
+  .ledger-pair {
+    display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--color-rule);
+    border-radius: 8px; overflow: hidden; margin-bottom: 10px; background: var(--color-paper);
   }
-  .fin-item {
-    background: #fff; border: 1px solid var(--border); border-radius: 9px; padding: 9px 11px;
-  }
-  .fin-item small { display: block; font-size: 10px; color: var(--muted); text-transform: uppercase; font-weight: 700; }
-  .fin-item b { display: block; font-size: 16px; margin-top: 2px; }
-  .fin-item span { font-size: 11.5px; color: var(--muted); }
+  .ledger-item { padding: 10px 12px; background: #fff; }
+  .ledger-item:first-child { border-right: 1px solid var(--color-rule); }
+  .ledger-item small { display: block; font-size: 11px; color: var(--color-muted); }
+  .ledger-item b { display: block; font-family: var(--font-mono); font-size: 16px; font-weight: 600; margin-top: 2px; }
+  .ledger-item span { font-size: 11.5px; color: var(--color-muted); }
 
   .lucro-banner {
     display: flex; align-items: center; justify-content: space-between;
-    background: var(--green-bg); border: 1px solid #ceead6; border-radius: 9px; padding: 9px 12px;
+    background: var(--color-emerald-tint); border-radius: 8px; padding: 10px 12px;
   }
-  .pill { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 10px; display: inline-flex; align-items: center; gap: 4px; }
-  .pill-roi { background: var(--green-bg); color: var(--green); border: 1px solid #ceead6; }
-  .pill-mod { background: #e8f0fe; color: var(--caixa); }
+  .pill { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; }
+  .pill-roi { background: var(--color-emerald-tint); color: var(--color-emerald); }
+  .pill-mod { background: var(--color-caixa-tint); color: var(--color-caixa); }
 
-  .portal-row { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
+  .portal-row { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 8px; }
   .portal-mini {
-    font-size: 11px; font-weight: 700; padding: 4px 8px; border-radius: 6px;
-    border: 1px solid var(--border); background: #fff; text-decoration: none; color: #3c4043;
+    font-size: 11px; font-weight: 600; padding: 4px 9px; border-radius: 6px;
+    border: 1px solid var(--color-rule-strong); background: var(--color-paper); text-decoration: none; color: var(--color-ink);
   }
-  .portal-mini:hover { background: #e8f0fe; color: var(--primary); }
+  .portal-mini:hover { background: var(--color-ink); color: var(--color-cotton); }
 
   /* TABELA */
-  .table-wrap { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: auto; display: none; }
+  .table-wrap { background: var(--color-cotton); border-radius: 12px; box-shadow: var(--edge-stock), var(--cast-stock); overflow: auto; display: none; }
   table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
   th {
-    position: sticky; top: 0; background: #f1f3f4; padding: 10px; text-align: left;
-    border-bottom: 2px solid var(--border); white-space: nowrap; cursor: pointer; user-select: none;
+    position: sticky; top: 0; background: var(--color-paper-2); padding: 11px 12px; text-align: left;
+    border-bottom: 1px solid var(--color-rule-strong); white-space: nowrap; cursor: pointer; user-select: none;
+    font-weight: 600; color: var(--color-ink);
   }
-  th:hover { background: #e8f0fe; color: var(--caixa); }
-  td { padding: 9px 10px; border-bottom: 1px solid #f1f3f4; vertical-align: middle; }
-  tr:hover { background: #f1f6fe; }
+  th:hover { background: var(--color-paper-3); }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--color-rule); vertical-align: middle; }
+  tr:hover { background: var(--color-paper); }
 </style>
 </head>
 <body>
 
 <div id="radarBar">
-  <div style="display:flex;align-items:center">
-    <span class="pulse"></span>
-    <div>
-      <b style="font-size:14px">📡 Radar Automático Site da Caixa (Verificação a cada 5 minutos)</b>
-      <div id="radarStatus" style="font-size:12px;opacity:.9">Monitorando novos imóveis e descontos na base da Caixa Econômica Federal...</div>
-    </div>
-  </div>
   <div style="display:flex;align-items:center;gap:10px">
-    <span id="timerBadge" style="background:rgba(255,255,255,.18);padding:5px 12px;border-radius:14px;font-size:12.5px;font-weight:700">Próxima busca: 05:00</span>
-    <button class="btn btn-orange" onclick="buscarNovosCaixaAgora()">🔄 Verificar Novos Imóveis Agora</button>
+    <span class="notif-dot"></span>
+    <span style="font-family:var(--font-mono);font-size:11px;color:#d6cfc7">RADAR CAIXA · 5 MIN</span>
+    <span id="radarStatus">Monitorando novos imóveis e descontos na base da Caixa Econômica Federal...</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <span id="timerBadge" style="font-family:var(--font-mono);font-size:11px;color:#d6cfc7;background:rgba(255,255,255,.08);padding:3px 9px;border-radius:4px">05:00</span>
+    <button class="btn-stock" style="height:28px;padding:0 11px;font-size:11.5px" onclick="buscarNovosCaixaAgora()">Sincronizar Agora</button>
   </div>
 </div>
 
 <header>
   <a class="brand" href="index.html">
-    <div class="brand-icon">🏦</div>
+    <div class="brand-monogram">12</div>
     <div>
-      <strong style="font-size:16px;display:block">Vitrine de Oportunidades no Site da Caixa – Por Modalidade & Lucro</strong>
-      <span style="font-size:11.5px;color:var(--muted)">Leilão SFI · Venda Direta Online · Venda Online · Licitação Aberta · Atualizado em 25/11/2026, 08:40:39</span>
+      <span class="brand-title">Vitrine de Oportunidades · Caixa Econômica Federal</span>
+      <span class="brand-sub">Leilão SFI · Venda Direta Online · Venda Online · Licitação Aberta · Atualizado em 26/11/2026, 09:24:29</span>
     </div>
   </a>
-  <nav class="nav-links">
-    <a class="nav-link" href="index.html">🗺️ Mapa Principal</a>
-    <a class="nav-link active" href="caixa.html">🏦 Oportunidades Caixa</a>
-    <a class="nav-link" href="intimacoes.html">⚖️ Intimações & Consolidados (60d)</a>
-    <a class="nav-link" href="kanban.html">📌 Kanban</a>
+  <nav class="nav-strip">
+    <a class="nav-tab" href="index.html">Mapa Geográfico</a>
+    <a class="nav-tab active" href="caixa.html">Vitrine Caixa</a>
+    <a class="nav-tab" href="intimacoes.html">Consolidados 60 Dias</a>
+    <a class="nav-tab" href="kanban.html">Quadro Kanban</a>
   </nav>
 </header>
 
 <div class="container">
-  <!-- DIAGRAMA EDITORIAL DE MODALIDADES CAIXA (DIAGRAM DESIGN SKILL) -->
-  <details style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:12px 18px;margin-bottom:16px;box-shadow:0 2px 10px rgba(30,36,48,0.03)">
-    <summary style="cursor:pointer;font-weight:700;font-size:13px;color:var(--text);display:flex;align-items:center;justify-content:space-between;list-style:none">
-      <span>📐 Diagrama Arquitetônico do Ciclo de Leilão &amp; Modalidades Caixa (Lei 9.514/97) — Clique para expandir</span>
-      <span style="font-family:var(--font-mono);font-size:11px;color:var(--accent-coral)">SVG Editorial ▾</span>
+  <!-- DIAGRAMA ARQUITETÔNICO DE MODALIDADES CAIXA (DIAGRAM DESIGN SKILL) -->
+  <details style="background:var(--color-cotton);border-radius:12px;padding:12px 18px;margin-bottom:18px;box-shadow:var(--edge-stock)">
+    <summary style="cursor:pointer;font-weight:600;font-size:13px;color:var(--color-ink);display:flex;align-items:center;justify-content:space-between;list-style:none">
+      <span>Diagrama Arquitetônico do Ciclo de Leilão &amp; Modalidades Caixa (Lei 9.514/97) — Clique para expandir</span>
+      <span style="font-family:var(--font-mono);font-size:11px;color:var(--color-accent)">Esquema SVG</span>
     </summary>
-    <div style="margin-top:14px;padding:16px;background:#f5f5f5;border-radius:12px;border:1px solid rgba(45,49,66,0.1)">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;flex-wrap:wrap;gap:8px">
-        <span style="font-family:var(--font-serif);font-size:22px;color:#2d3142">Fluxo de Alienação Fiduciária: Da Consolidação no 12º RI à Compra na Caixa</span>
-        <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#4f5d75">DIAGRAM DESIGN · PIPELINE SFI</span>
+    <div style="margin-top:14px;padding:18px;background:#f5f5f5;border-radius:10px;border:1px solid rgba(45,49,66,0.12)">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+        <span style="font-family:var(--font-serif);font-size:24px;color:#2d3142">Fluxo de Alienação Fiduciária: Da Consolidação no 12º RI à Compra na Caixa</span>
+        <span style="font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;color:#4f5d75">DIAGRAM DESIGN · PIPELINE SFI</span>
       </div>
-      <svg viewBox="0 0 1100 145" width="100%" style="display:block;overflow:visible">
+      <svg viewBox="0 0 1100 140" width="100%" style="display:block;overflow:visible">
         <defs>
           <marker id="arSfi" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#4f5d75"/>
@@ -253,60 +279,56 @@
             <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#bf4520"/>
           </marker>
         </defs>
-        <!-- Stage 1 -->
         <g onclick="window.location.href='intimacoes.html'" style="cursor:pointer">
-          <rect x="10" y="18" width="225" height="96" rx="10" fill="#ffffff" stroke="rgba(45,49,66,0.22)" stroke-width="1.3"/>
-          <text x="24" y="38" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.4" fill="#5a6580">ETAPA 01 · 12º RI</text>
-          <text x="24" y="60" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#2d3142">Consolidação (&lt; 60 dias)</text>
-          <text x="24" y="80" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#4f5d75">Art. 27 Lei 9.514/97 obriga</text>
-          <text x="24" y="96" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#4f5d75">leilão em até 60 dias</text>
+          <rect x="10" y="16" width="225" height="96" rx="8" fill="#ffffff" stroke="rgba(45,49,66,0.22)" stroke-width="1.2"/>
+          <text x="24" y="38" font-family="Geist Mono, monospace" font-size="9" fill="#5a6580">ETAPA 01 · 12º RI</text>
+          <text x="24" y="60" font-size="13" font-weight="600" fill="#2d3142">Consolidação (&lt; 60 dias)</text>
+          <text x="24" y="80" font-size="11" fill="#4f5d75">Art. 27 Lei 9.514/97 obriga</text>
+          <text x="24" y="96" font-size="11" fill="#4f5d75">leilão em até 60 dias</text>
         </g>
-        <line x1="235" y1="66" x2="278" y2="66" stroke="#4f5d75" stroke-width="1.5" marker-end="url(#arSfi)"/>
+        <line x1="235" y1="64" x2="278" y2="64" stroke="#4f5d75" stroke-width="1.4" marker-end="url(#arSfi)"/>
 
-        <!-- Stage 2 -->
         <g onclick="setModalidade('Leilão SFI')" style="cursor:pointer">
-          <rect x="282" y="18" width="235" height="96" rx="10" fill="#ffffff" stroke="rgba(45,49,66,0.22)" stroke-width="1.3"/>
-          <text x="296" y="38" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.4" fill="#5a6580">ETAPA 02 · EDITAL ÚNICO</text>
-          <text x="296" y="60" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#2d3142">Leilão SFI (1º e 2º Leilão)</text>
-          <text x="296" y="80" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#4f5d75">1º: Valor de Avaliação</text>
-          <text x="296" y="96" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#4f5d75">2º: Valor da Dívida + Encargos</text>
+          <rect x="282" y="16" width="235" height="96" rx="8" fill="#ffffff" stroke="rgba(45,49,66,0.22)" stroke-width="1.2"/>
+          <text x="296" y="38" font-family="Geist Mono, monospace" font-size="9" fill="#5a6580">ETAPA 02 · EDITAL ÚNICO</text>
+          <text x="296" y="60" font-size="13" font-weight="600" fill="#2d3142">Leilão SFI (1º e 2º Leilão)</text>
+          <text x="296" y="80" font-size="11" fill="#4f5d75">1º: Valor de Avaliação</text>
+          <text x="296" y="96" font-size="11" fill="#4f5d75">2º: Valor da Dívida + Encargos</text>
         </g>
-        <line x1="517" y1="66" x2="560" y2="66" stroke="#bf4520" stroke-width="1.6" marker-end="url(#arCoral)"/>
+        <line x1="517" y1="64" x2="560" y2="64" stroke="#bf4520" stroke-width="1.6" marker-end="url(#arCoral)"/>
 
-        <!-- Stage 3 (Focal Coral) -->
         <g onclick="setModalidade('Venda Online')" style="cursor:pointer">
-          <rect x="564" y="18" width="240" height="96" rx="10" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="2"/>
-          <text x="578" y="38" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.4" fill="#bf4520">ETAPA 03 · MAIOR DESCONTO</text>
-          <text x="578" y="60" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#111111">Licitação / Venda Online</text>
-          <text x="578" y="80" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#2d3142">Disputa c/ cronômetro e</text>
-          <text x="578" y="96" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#bf4520">descontos de 35% a 65%</text>
+          <rect x="564" y="16" width="240" height="96" rx="8" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="1.8"/>
+          <text x="578" y="38" font-family="Geist Mono, monospace" font-size="9" fill="#bf4520">ETAPA 03 · MAIOR DESCONTO</text>
+          <text x="578" y="60" font-size="13" font-weight="600" fill="#111111">Licitação / Venda Online</text>
+          <text x="578" y="80" font-size="11" fill="#2d3142">Disputa com cronômetro e</text>
+          <text x="578" y="96" font-size="11" font-weight="600" fill="#bf4520">descontos de 35% a 65%</text>
         </g>
-        <line x1="804" y1="66" x2="847" y2="66" stroke="#bf4520" stroke-width="1.6" marker-end="url(#arCoral)"/>
+        <line x1="804" y1="64" x2="847" y2="64" stroke="#bf4520" stroke-width="1.6" marker-end="url(#arCoral)"/>
 
-        <!-- Stage 4 -->
         <g onclick="setModalidade('Venda Direta Online')" style="cursor:pointer">
-          <rect x="851" y="18" width="238" height="96" rx="10" fill="#ecfdf5" stroke="#0f766e" stroke-width="1.5"/>
-          <text x="865" y="38" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.4" fill="#0f766e">ETAPA 04 · COMPRA IMEDIATA</text>
-          <text x="865" y="60" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#0f766e">Venda Direta Online</text>
-          <text x="865" y="80" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#1e2430">Sem disputa: o 1º proponente</text>
-          <text x="865" y="96" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#0f766e">arremata pelo preço mínimo</text>
+          <rect x="851" y="16" width="238" height="96" rx="8" fill="rgba(15,110,86,0.08)" stroke="#0f6e56" stroke-width="1.4"/>
+          <text x="865" y="38" font-family="Geist Mono, monospace" font-size="9" fill="#0f6e56">ETAPA 04 · COMPRA IMEDIATA</text>
+          <text x="865" y="60" font-size="13" font-weight="600" fill="#0f6e56">Venda Direta Online</text>
+          <text x="865" y="80" font-size="11" fill="#1c1917">Sem disputa: o 1º proponente</text>
+          <text x="865" y="96" font-size="11" font-weight="600" fill="#0f6e56">arremata pelo preço mínimo</text>
         </g>
       </svg>
     </div>
   </details>
 
-  <!-- ESCOLHA DE ESCOPO: 12º RI OU TODOS DO SITE DA CAIXA -->
-  <div class="scope-bar">
+  <!-- SELETOR GROOVE DE ESCOPO -->
+  <div class="scope-groove">
     <button class="scope-btn active" id="sc_12ri" onclick="setBase('12ri')">
-      <span>🎯 Oportunidades do 12º RI à Venda na Caixa</span>
+      <span>Imóveis do 12º RI à Venda na Caixa</span>
       <span class="scope-cnt" id="cnt_base_12ri">0</span>
     </button>
     <button class="scope-btn" id="sc_u60" onclick="setBase('u60')">
-      <span>🔥 Recém-Consolidados (&lt; 60 dias) já na Caixa</span>
+      <span>Recém-Consolidados (&lt; 60 dias) já na Caixa</span>
       <span class="scope-cnt" id="cnt_base_u60">0</span>
     </button>
     <button class="scope-btn" id="sc_todos" onclick="setBase('todos')">
-      <span>🌐 Todos os Imóveis Atualmente à Venda na Caixa (RJ)</span>
+      <span>Todos os Imóveis Atualmente à Venda na Caixa (RJ)</span>
       <span class="scope-cnt" id="cnt_base_todos">0</span>
     </button>
   </div>
@@ -314,92 +336,90 @@
   <!-- FILTRO POR MODALIDADE DE VENDA DA CAIXA -->
   <div class="mod-grid">
     <div class="mod-card active" id="mod_ALL" onclick="setModalidade('')">
-      <small>🏦 Todas as Modalidades</small>
+      <small>Todas as Modalidades</small>
       <b id="m_all">0</b>
-      <span>Todos os imóveis à venda</span>
+      <span>Total no recorte ativo</span>
     </div>
     <div class="mod-card" id="mod_SFI" onclick="setModalidade('Leilão SFI')">
-      <small>🔨 Leilão SFI - Edital Único</small>
+      <small>Leilão SFI · Edital Único</small>
       <b id="m_sfi">0</b>
-      <span>1º e 2º Leilão Alienação Fiduciária</span>
+      <span>1º e 2º Leilão Fiduciário</span>
     </div>
     <div class="mod-card" id="mod_VDO" onclick="setModalidade('Venda Direta Online')">
-      <small>💰 Venda Direta Online</small>
+      <small>Venda Direta Online</small>
       <b id="m_vdo">0</b>
-      <span>Compra imediata (quem clicar primeiro leva)</span>
+      <span>Compra imediata pelo valor mínimo</span>
     </div>
     <div class="mod-card" id="mod_VO" onclick="setModalidade('Venda Online')">
-      <small>⚡ Venda Online</small>
+      <small>Venda Online</small>
       <b id="m_vo">0</b>
-      <span>Disputa online com cronômetro</span>
+      <span>Propostas online com cronômetro</span>
     </div>
     <div class="mod-card" id="mod_LA" onclick="setModalidade('Licitação Aberta')">
-      <small>📋 Licitação Aberta / Direta</small>
+      <small>Licitação Aberta / Direta</small>
       <b id="m_la">0</b>
-      <span>Propostas abertas / Venda Direta</span>
+      <span>Disputa aberta de propostas</span>
     </div>
   </div>
 
   <!-- BARRA DE BUSCA POR ENDEREÇO + ORDENAÇÃO CRESCENTE / DECRESCENTE -->
   <div class="toolbar">
-    <input type="text" id="qEndereco" placeholder="🔎 Buscar por endereço (rua, número, condomínio), matrícula ou nº Caixa..." oninput="page=0;render()">
+    <input type="text" id="qEndereco" placeholder="Buscar por endereço (rua, número, condomínio), matrícula ou nº Caixa..." oninput="page=0;render()">
 
     <select id="fBairro" onchange="page=0;render()">
-      <option value="">📍 Todos os bairros</option>
+      <option value="">Todos os bairros</option>
     </select>
 
     <select id="fFinanc" onchange="page=0;render()">
-      <option value="">💳 Financiamento: Todos</option>
-      <option value="sim">✅ Aceita Financiamento</option>
-      <option value="nao">❌ Somente à Vista</option>
+      <option value="">Financiamento: Todos</option>
+      <option value="sim">Aceita Financiamento</option>
+      <option value="nao">Somente à Vista</option>
     </select>
 
-    <select id="fOrdem" onchange="page=0;render()" style="font-weight:700;border-color:var(--caixa);color:var(--caixa)">
-      <option value="preco_asc">💰 Preço Caixa: Ordem Crescente (Menor → Maior)</option>
-      <option value="preco_desc">💰 Preço Caixa: Ordem Decrescente (Maior → Menor)</option>
-      <option value="desc_desc">🔥 Desconto %: Ordem Decrescente (Maior → Menor)</option>
-      <option value="desc_asc">🔥 Desconto %: Ordem Crescente (Menor → Maior)</option>
-      <option value="roi_desc">📈 % de Lucro (ROI): Ordem Decrescente (Maior → Menor)</option>
-      <option value="roi_asc">📈 % de Lucro (ROI): Ordem Crescente (Menor → Maior)</option>
-      <option value="lucro_desc">💵 Lucro em R$: Ordem Decrescente (Maior → Menor)</option>
-      <option value="aval_asc">🏦 Avaliação Caixa: Ordem Crescente</option>
-      <option value="aval_desc">🏦 Avaliação Caixa: Ordem Decrescente</option>
-      <option value="end_asc">🔤 Endereço: Ordem Alfabética (A → Z)</option>
-      <option value="end_desc">🔤 Endereço: Ordem Alfabética (Z → A)</option>
+    <select id="fOrdem" onchange="page=0;render()" style="font-weight:600">
+      <option value="preco_asc">Preço Caixa: Ordem Crescente (Menor → Maior)</option>
+      <option value="preco_desc">Preço Caixa: Ordem Decrescente (Maior → Menor)</option>
+      <option value="desc_desc">Desconto %: Ordem Decrescente (Maior → Menor)</option>
+      <option value="desc_asc">Desconto %: Ordem Crescente (Menor → Maior)</option>
+      <option value="roi_desc">% de Lucro (ROI): Ordem Decrescente (Maior → Menor)</option>
+      <option value="roi_asc">% de Lucro (ROI): Ordem Crescente (Menor → Maior)</option>
+      <option value="lucro_desc">Lucro em R$: Ordem Decrescente (Maior → Menor)</option>
+      <option value="aval_asc">Avaliação Caixa: Ordem Crescente</option>
+      <option value="aval_desc">Avaliação Caixa: Ordem Decrescente</option>
+      <option value="end_asc">Endereço: Ordem Alfabética (A → Z)</option>
+      <option value="end_desc">Endereço: Ordem Alfabética (Z → A)</option>
     </select>
 
-    <button class="btn" id="btnToggleModo" onclick="alternarModo()">📋 Ver em Tabela</button>
-    <button class="btn" onclick="exportarCSV()">📥 Exportar CSV</button>
+    <button class="btn-stock" id="btnToggleModo" onclick="alternarModo()">Ver em Tabela</button>
+    <button class="btn-stock" onclick="exportarCSV()">Exportar CSV</button>
   </div>
 
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px">
-    <span id="resumoLista" style="font-size:13.5px;font-weight:700;color:var(--muted)"></span>
+    <span id="resumoLista" style="font-family:var(--font-mono);font-size:12.5px;color:var(--color-muted)"></span>
     <div style="display:flex;gap:8px;align-items:center">
-      <button class="btn" id="btnPrev" onclick="page--;render()">◀ Anterior</button>
-      <span id="pageInfo" style="font-size:12.5px;font-weight:700">1 / 1</span>
-      <button class="btn" id="btnNext" onclick="page++;render()">Próxima ▶</button>
+      <button class="btn-stock" id="btnPrev" onclick="page--;render()">Anterior</button>
+      <span id="pageInfo" style="font-family:var(--font-mono);font-size:12px">1 / 1</span>
+      <button class="btn-stock" id="btnNext" onclick="page++;render()">Próxima</button>
     </div>
   </div>
 
-  <!-- VITRINE DE CARDS (ESTILO DA FOTO QUE O USUÁRIO ELOGIOU) -->
   <div class="cards-grid" id="cardsGrid"></div>
 
-  <!-- VISÃO EM TABELA -->
   <div class="table-wrap" id="tableWrap">
     <table>
       <thead>
         <tr>
-          <th onclick="ordenarColuna('id')">Nº Caixa ↕</th>
-          <th onclick="ordenarColuna('m')">Matrícula 12º RI ↕</th>
-          <th onclick="ordenarColuna('md')">Modalidade Caixa ↕</th>
-          <th onclick="ordenarColuna('end')">Endereço / Condomínio ↕</th>
-          <th onclick="ordenarColuna('b')">Bairro ↕</th>
-          <th onclick="ordenarColuna('pr')">🏦 Arrematação Caixa ↕</th>
-          <th onclick="ordenarColuna('av')">Avaliação Caixa ↕</th>
-          <th onclick="ordenarColuna('ds')">Desconto % ↕</th>
-          <th onclick="ordenarColuna('vm')">🏘️ Valor Mercado ↕</th>
-          <th onclick="ordenarColuna('lb')">📈 Lucro (R$) ↕</th>
-          <th onclick="ordenarColuna('lp')">% Lucro (ROI) ↕</th>
+          <th onclick="ordenarColuna('id')">Nº Caixa</th>
+          <th onclick="ordenarColuna('m')">Matrícula 12º RI</th>
+          <th onclick="ordenarColuna('md')">Modalidade Caixa</th>
+          <th onclick="ordenarColuna('end')">Endereço / Condomínio</th>
+          <th onclick="ordenarColuna('b')">Bairro</th>
+          <th onclick="ordenarColuna('pr')">Arrematação Caixa</th>
+          <th onclick="ordenarColuna('av')">Avaliação Caixa</th>
+          <th onclick="ordenarColuna('ds')">Desconto %</th>
+          <th onclick="ordenarColuna('vm')">Valor Mercado</th>
+          <th onclick="ordenarColuna('lb')">Margem (R$)</th>
+          <th onclick="ordenarColuna('lp')">% Lucro (ROI)</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -415,33 +435,16 @@ const brl = v => v == null ? '–' : v.toLocaleString('pt-BR', { style: 'currenc
 const norm = s => (s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const NOME_ETAPA = { AMBAS: 'Intimado e Consolidado', SO_CONS: 'Consolidado', SO_INT: 'Intimado' };
 
-// 1) Imóveis do 12º RI que estão à venda na Caixa
 const IMOVEIS_12RI_CAIXA = DADOS.filter(d => d.cx).map(d => ({
   origem: '12º RI',
-  id: d.cx.id,
-  m: d.m,
-  g: d.g,
-  e: d.e,
-  b: d.b,
-  c: d.c,
-  p: d.p,
-  la: d.la,
-  lo: d.lo,
-  lm: d.lm,
-  pr: d.cx.pr,
-  av: d.cx.av,
-  ds: d.cx.ds,
-  md: d.cx.md,
-  fn: d.cx.fn,
-  de: d.cx.de,
+  id: d.cx.id, m: d.m, g: d.g, e: d.e, b: d.b, c: d.c, p: d.p, la: d.la, lo: d.lo, lm: d.lm,
+  pr: d.cx.pr, av: d.cx.av, ds: d.cx.ds, md: d.cx.md, fn: d.cx.fn, de: d.cx.de,
   vm: d.vm || d.cx.av,
   lb: d.lb ?? Math.round((d.vm || d.cx.av) - d.cx.pr),
   lp: d.lp ?? +((((d.vm || d.cx.av) - d.cx.pr) / d.cx.pr) * 100).toFixed(1),
-  u60: d.u60,
-  ddc: d.ddc
+  u60: d.u60, ddc: d.ddc
 }));
 
-// 2) Demais imóveis à venda na Caixa no Rio de Janeiro (embutidos + atualizáveis via /api/caixa-rj)
 const ids12ri = new Set(IMOVEIS_12RI_CAIXA.map(x => x.id));
 let IMOVEIS_CAIXA_EXTRAS = LISTA_CAIXA_RJ.filter(x => !ids12ri.has(x.id)).map(x => {
   const vm = x.av || Math.round((x.pr || 100000) * 1.55);
@@ -482,7 +485,7 @@ function popularBairros() {
   const pool = obterPoolBase();
   const atual = document.getElementById('fBairro').value;
   const bairros = [...new Set(pool.map(d => d.b).filter(Boolean))].sort();
-  document.getElementById('fBairro').innerHTML = '<option value="">📍 Todos os bairros (' + bairros.length + ')</option>' +
+  document.getElementById('fBairro').innerHTML = '<option value="">Todos os bairros (' + bairros.length + ')</option>' +
     bairros.map(b => `<option value="${b}" ${b === atual ? 'selected' : ''}>${b}</option>`).join('');
 }
 
@@ -511,7 +514,7 @@ function alternarModo() {
   modoTabela = !modoTabela;
   document.getElementById('cardsGrid').style.display = modoTabela ? 'none' : 'grid';
   document.getElementById('tableWrap').style.display = modoTabela ? 'block' : 'none';
-  document.getElementById('btnToggleModo').textContent = modoTabela ? '🗂️ Ver Vitrine c/ Fotos' : '📋 Ver em Tabela';
+  document.getElementById('btnToggleModo').textContent = modoTabela ? 'Ver Vitrine com Fotos' : 'Ver em Tabela';
   render();
 }
 
@@ -537,7 +540,6 @@ function obterFiltrados() {
   document.getElementById('cnt_base_u60').textContent = IMOVEIS_12RI_CAIXA.filter(x => x.u60).length;
   document.getElementById('cnt_base_todos').textContent = (IMOVEIS_12RI_CAIXA.length + IMOVEIS_CAIXA_EXTRAS.length).toLocaleString('pt-BR');
 
-  // Primeiro aplica filtro de endereço, bairro e financiamento para contar cada modalidade
   const preMod = obterPoolBase().filter(x => {
     if (b && x.b !== b) return false;
     if (fin === 'sim' && !/sim/i.test(x.fn || '')) return false;
@@ -603,51 +605,50 @@ function render() {
       const termo = encodeURIComponent(`${x.c || x.e} ${x.b || 'Rio de Janeiro'}`);
       return `<div class="opp-card">
         <div class="opp-top-tags">
-          <span class="tag-etapa" style="background:${x.m ? '#d93025' : '#005ca9'}">
-            ${x.m ? (NOME_ETAPA[x.g] || 'Intimado e Consolidado') : '🏦 Site Caixa RJ'}
+          <span class="tag-etapa" style="background:${x.m ? 'var(--color-ambas)' : 'var(--color-caixa)'}">
+            ${x.m ? (NOME_ETAPA[x.g] || 'Intimado e Consolidado') : 'Site Caixa RJ'}
           </span>
-          ${x.u60 ? `<span class="pill" style="background:#fef7e0;color:#b06000;border:1px solid #fde293">🔥 Consolidado há ${x.ddc}d</span>` : ''}
-          <button class="btn" style="padding:4px 10px;font-size:11.5px;border-color:#fbbc04;background:${isFav ? '#fef7e0' : '#fff'}" onclick="toggleKanbanFav('${keyFav}')">
-            ${isFav ? '⭐ Na Carteira Kanban' : '☆ Enviar p/ Carteira Kanban'}
+          ${x.u60 ? `<span class="pill" style="background:var(--color-accent-tint);color:var(--color-accent)">Consolidado há ${x.ddc}d</span>` : ''}
+          <button class="btn-stock" style="height:28px;padding:0 10px;font-size:11.5px;background:${isFav ? 'var(--color-accent-tint)' : '#fff'};color:${isFav ? 'var(--color-accent)' : 'var(--color-ink)'}" onclick="toggleKanbanFav('${keyFav}')">
+            ${isFav ? 'Salvo no Kanban' : 'Salvar no Kanban'}
           </button>
         </div>
 
         <div class="mat-box">
           <div>
-            <small style="font-size:10px;color:var(--muted);text-transform:uppercase;font-weight:700">${x.m ? 'MATRÍCULA 12º RI' : 'Nº IMÓVEL CAIXA'}</small>
+            <span style="font-size:10.5px;color:var(--color-muted);display:block">${x.m ? 'Matrícula 12º RI' : 'Identificador Caixa'}</span>
             <div class="mat-num">${x.m ? 'Nº ' + x.m : 'Nº ' + x.id}</div>
           </div>
           <div style="display:flex;gap:6px">
-            ${x.m ? `<a class="btn" style="padding:5px 10px;font-size:11.5px" href="index.html?mat=${x.m}">🗺️ Ver no Mapa</a>` : ''}
-            ${x.lm ? `<a class="btn btn-primary" style="padding:5px 10px;font-size:11.5px" href="${x.lm}" target="_blank">Matrícula Folio ↗</a>` : ''}
+            ${x.m ? `<a class="btn-stock" style="height:30px;padding:0 10px;font-size:11.5px" href="index.html?mat=${x.m}">Ver no Mapa</a>` : ''}
+            ${x.lm ? `<a class="btn-stock btn-ink" style="height:30px;padding:0 10px;font-size:11.5px" href="${x.lm}" target="_blank">Matrícula Folio</a>` : ''}
           </div>
         </div>
 
         <div>
           <h3 class="end-title">${x.e}</h3>
           <div class="end-sub">
-            📍 <b>${x.b || 'RIO DE JANEIRO'}</b> ${x.c ? `· Condomínio <b>${x.c}</b>` : ''}
-            ${x.p ? `<br><small>Precisão: ${x.p} (${x.la}, ${x.lo})</small>` : ''}
+            <b>${x.b || 'RIO DE JANEIRO'}</b> ${x.c ? `· Condomínio <b>${x.c}</b>` : ''}
+            ${x.p ? `<br><span style="font-family:var(--font-mono);font-size:11px">Precisão: ${x.p} (${x.la}, ${x.lo})</span>` : ''}
           </div>
         </div>
 
-        <!-- CARD AZUL IDÊNTICO AO DA FOTO ELOGIADA PELO USUÁRIO -->
         <div class="caixa-showcase">
           <div class="caixa-showcase-head">
-            <strong style="color:var(--caixa);font-size:12.5px">🏦 À VENDA NO SITE DA CAIXA</strong>
+            <strong style="color:var(--color-caixa);font-size:12.5px">À Venda no Site da Caixa</strong>
             <span class="badge-desconto">-${x.ds}% DESCONTO</span>
           </div>
 
-          <img class="caixa-photo" src="https://venda-imoveis.caixa.gov.br/fotos/F${x.id}21.jpg" alt="Foto do Imóvel na Caixa"
+          <img class="caixa-photo" src="https://venda-imoveis.caixa.gov.br/fotos/F${x.id}21.jpg" alt="Fotografia do imóvel na Caixa"
             onerror="this.style.display='none'">
 
-          <div class="fin-pair">
-            <div class="fin-item" style="border-left:4px solid var(--caixa)">
+          <div class="ledger-pair">
+            <div class="ledger-item">
               <small>Valor Arrematação Caixa</small>
-              <b style="color:var(--caixa)">${brl(x.pr)}</b>
+              <b style="color:var(--color-caixa)">${brl(x.pr)}</b>
               <span><b>${x.md}</b></span>
             </div>
-            <div class="fin-item" style="border-left:4px solid var(--caixa-orange)">
+            <div class="ledger-item">
               <small>Avaliação Caixa</small>
               <b>${brl(x.av)}</b>
               <span>Financia: <b>${x.fn || 'Consultar'}</b></span>
@@ -656,31 +657,31 @@ function render() {
 
           <div class="lucro-banner">
             <div>
-              <small style="font-size:10px;color:var(--green);font-weight:700;text-transform:uppercase">🏘️ Valor Mercado (Redes)</small>
-              <div style="font-size:15px;font-weight:800;color:var(--green)">${brl(x.vm)}</div>
+              <span style="font-size:11px;color:var(--color-emerald);display:block">Valor de Mercado (Redes)</span>
+              <div style="font-family:var(--font-mono);font-size:15px;font-weight:600;color:var(--color-emerald)">${brl(x.vm)}</div>
             </div>
             <div style="text-align:right">
-              <small style="font-size:10px;color:var(--green);font-weight:700;text-transform:uppercase">📈 Lucro Estimado</small>
-              <div style="font-size:15px;font-weight:800;color:var(--green)">+${x.lp}% (+${brl(x.lb)})</div>
+              <span style="font-size:11px;color:var(--color-emerald);display:block">Margem Bruta Estimada</span>
+              <div style="font-family:var(--font-mono);font-size:15px;font-weight:600;color:var(--color-emerald)">+${x.lp}% (+${brl(x.lb)})</div>
             </div>
           </div>
 
-          <div style="font-size:11.5px;color:#3c4043;margin-top:8px;line-height:1.35">
-            <b>Nº Imóvel Caixa:</b> ${x.id}
+          <div style="font-size:11.5px;color:var(--color-muted);margin-top:8px;line-height:1.4">
+            <span style="font-family:var(--font-mono)">Nº Imóvel Caixa: ${x.id}</span>
             ${x.de ? `<br>${x.de}` : ''}
           </div>
 
           <div style="display:flex;gap:8px;margin-top:10px">
-            <a class="btn btn-caixa" style="flex:1" href="https://venda-imoveis.caixa.gov.br/sistema/detalhe-imovel.asp?hdnimovel=${x.id}" target="_blank">🏦 Abrir Anúncio Caixa ↗</a>
-            <a class="btn" href="https://venda-imoveis.caixa.gov.br/editais/matricula/RJ/${x.id}.pdf" target="_blank">📄 Matrícula PDF ↗</a>
+            <a class="btn-stock btn-caixa" style="flex:1" href="https://venda-imoveis.caixa.gov.br/sistema/detalhe-imovel.asp?hdnimovel=${x.id}" target="_blank">Abrir Anúncio Caixa</a>
+            <a class="btn-stock" href="https://venda-imoveis.caixa.gov.br/editais/matricula/RJ/${x.id}.pdf" target="_blank">Certidão PDF</a>
           </div>
 
           <div class="portal-row">
-            <a class="portal-mini" href="https://www.google.com/search?q=site:zapimoveis.com.br+${termo}+venda" target="_blank">🟧 Zap</a>
-            <a class="portal-mini" href="https://www.google.com/search?q=site:quintoandar.com.br+${termo}+venda" target="_blank">🟦 QuintoAndar</a>
-            <a class="portal-mini" href="https://www.google.com/search?q=site:vivareal.com.br+${termo}+venda" target="_blank">🟩 VivaReal</a>
-            <a class="portal-mini" href="https://www.google.com/search?q=site:lopes.com.br+${termo}+venda" target="_blank">🟥 Lopes</a>
-            <a class="portal-mini" href="https://www.google.com/search?q=site:imovelweb.com.br+${termo}+venda" target="_blank">🟨 Imovelweb</a>
+            <a class="portal-mini" href="https://www.google.com/search?q=site:zapimoveis.com.br+${termo}+venda" target="_blank">Zap Imóveis</a>
+            <a class="portal-mini" href="https://www.google.com/search?q=site:quintoandar.com.br+${termo}+venda" target="_blank">QuintoAndar</a>
+            <a class="portal-mini" href="https://www.google.com/search?q=site:vivareal.com.br+${termo}+venda" target="_blank">VivaReal</a>
+            <a class="portal-mini" href="https://www.google.com/search?q=site:lopes.com.br+${termo}+venda" target="_blank">Lopes</a>
+            <a class="portal-mini" href="https://www.google.com/search?q=site:imovelweb.com.br+${termo}+venda" target="_blank">Imovelweb</a>
           </div>
         </div>
       </div>`;
@@ -688,31 +689,30 @@ function render() {
   } else {
     document.getElementById('tableBody').innerHTML = fatia.map(x => `
       <tr>
-        <td><b>${x.id}</b></td>
-        <td>${x.m ? `<a href="index.html?mat=${x.m}"><b>Mat. ${x.m}</b></a>` : 'Site Caixa RJ'}</td>
+        <td style="font-family:var(--font-mono)"><b>${x.id}</b></td>
+        <td style="font-family:var(--font-mono)">${x.m ? `<a href="index.html?mat=${x.m}" style="color:var(--color-ink)"><b>Mat. ${x.m}</b></a>` : 'Site Caixa RJ'}</td>
         <td><span class="pill pill-mod">${x.md}</span></td>
-        <td><b>${x.e}</b> ${x.c ? `<br><small style="color:var(--muted)">${x.c}</small>` : ''}</td>
+        <td><b>${x.e}</b> ${x.c ? `<br><small style="color:var(--color-muted)">${x.c}</small>` : ''}</td>
         <td>${x.b}</td>
-        <td style="color:var(--caixa);font-weight:700">${brl(x.pr)}</td>
-        <td>${brl(x.av)}</td>
+        <td style="font-family:var(--font-mono);color:var(--color-caixa);font-weight:600">${brl(x.pr)}</td>
+        <td style="font-family:var(--font-mono)">${brl(x.av)}</td>
         <td><span class="badge-desconto">-${x.ds}%</span></td>
-        <td style="color:var(--green);font-weight:700">${brl(x.vm)}</td>
-        <td style="color:var(--green);font-weight:700">+${brl(x.lb)}</td>
+        <td style="font-family:var(--font-mono);color:var(--color-emerald);font-weight:600">${brl(x.vm)}</td>
+        <td style="font-family:var(--font-mono);color:var(--color-emerald);font-weight:600">+${brl(x.lb)}</td>
         <td><span class="pill pill-roi">+${x.lp}%</span></td>
         <td style="white-space:nowrap">
-          ${x.m ? `<a class="btn" style="padding:4px 8px;font-size:11px" href="index.html?mat=${x.m}">🗺️ Mapa</a>` : ''}
-          <a class="btn btn-caixa" style="padding:4px 8px;font-size:11px" href="https://venda-imoveis.caixa.gov.br/sistema/detalhe-imovel.asp?hdnimovel=${x.id}" target="_blank">🏦 Caixa ↗</a>
+          ${x.m ? `<a class="btn-stock" style="height:28px;padding:0 8px;font-size:11px" href="index.html?mat=${x.m}">Mapa</a>` : ''}
+          <a class="btn-stock btn-caixa" style="height:28px;padding:0 8px;font-size:11px" href="https://venda-imoveis.caixa.gov.br/sistema/detalhe-imovel.asp?hdnimovel=${x.id}" target="_blank">Caixa</a>
         </td>
       </tr>
     `).join('');
   }
 }
 
-// ================= RADAR AO VIVO A CADA 5 MIN =================
 let seg = 300;
 async function buscarNovosCaixaAgora() {
   seg = 300;
-  document.getElementById('radarStatus').textContent = '🔄 Verificando atualizações no servidor da Caixa (/api/caixa-rj)...';
+  document.getElementById('radarStatus').textContent = 'Verificando atualizações no servidor da Caixa (/api/caixa-rj)...';
   try {
     const r = await fetch('/api/caixa-rj?t=' + Date.now());
     if (r.ok) {
@@ -733,7 +733,7 @@ async function buscarNovosCaixaAgora() {
     }
   } catch (e) {}
   const hora = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-  document.getElementById('radarStatus').textContent = `✅ Radar ativo (verificado às ${hora}) · ${IMOVEIS_12RI_CAIXA.length} oportunidades do 12º RI + ${IMOVEIS_CAIXA_EXTRAS.length} imóveis no RJ à venda na Caixa.`;
+  document.getElementById('radarStatus').textContent = `Radar ativo (verificado às ${hora}) · ${IMOVEIS_12RI_CAIXA.length} oportunidades do 12º RI + ${IMOVEIS_CAIXA_EXTRAS.length} imóveis no RJ à venda na Caixa.`;
   popularBairros();
   render();
 }
@@ -743,7 +743,7 @@ setInterval(() => {
   if (seg <= 0) buscarNovosCaixaAgora();
   const m = String(Math.floor(seg / 60)).padStart(2, '0');
   const s = String(seg % 60).padStart(2, '0');
-  document.getElementById('timerBadge').textContent = `Próxima busca: ${m}:${s}`;
+  document.getElementById('timerBadge').textContent = `${m}:${s}`;
 }, 1000);
 
 function exportarCSV() {

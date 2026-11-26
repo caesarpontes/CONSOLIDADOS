@@ -3,110 +3,138 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kanban de Oportunidades – 12º RI & Leilão Caixa</title>
+<title>Quadro Kanban de Oportunidades · 12º RI &amp; Leilão Caixa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* Hallmark · v2.0.0 · Impeccable · UI/UX Pro Max · Diagram Design */
+  /* Hallmark · v2.0.0 · theme: coral (dealt 1/3, modern-minimal) · Impeccable · UI/UX Pro Max */
   :root {
-    --primary: #2563eb;
-    --caixa: #0b5cab;
-    --bg: #f6f5f2;
-    --border: rgba(45, 49, 66, 0.12);
-    --text: #1e2430;
-    --muted: #5a6578;
-    --green: #0f766e;
-    --green-bg: #ecfdf5;
-    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --color-paper: #f6f4f0;
+    --color-paper-2: #efeae2;
+    --color-paper-3: #e5dfd5;
+    --color-cotton: #fcfbf9;
+    --color-ink: #1c1917;
+    --color-ink-2: #332e2a;
+    --color-muted: #6b635b;
+    --color-rule: rgba(28, 25, 23, 0.10);
+    --color-rule-strong: rgba(28, 25, 23, 0.18);
+    --color-accent: #bf4520;
+    --color-accent-tint: rgba(191, 69, 32, 0.08);
+    --color-caixa: #0f4c81;
+    --color-emerald: #0f6e56;
+    --color-emerald-tint: rgba(15, 110, 86, 0.09);
+    --color-ambas: #b8332a;
+    --font-sans: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-mono: 'Geist Mono', ui-monospace, monospace;
+    --edge-stock: inset 0 1px 0 rgba(255,255,255,0.9), 0 0 0 1px rgba(28, 25, 23, 0.10);
+    --cast-stock: 0 8px 24px -6px rgba(28, 25, 23, 0.09), 0 2px 6px -1px rgba(28, 25, 23, 0.04);
   }
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: var(--font-sans); font-variant-numeric: tabular-nums; height: 100vh; display: flex; flex-direction: column; color: var(--text); background: var(--bg); overflow: hidden; -webkit-font-smoothing: antialiased; }
+  body { margin: 0; font-family: var(--font-sans); font-variant-numeric: tabular-nums; height: 100vh; display: flex; flex-direction: column; color: var(--color-ink); background: var(--color-paper); overflow: hidden; -webkit-font-smoothing: antialiased; }
 
   header {
-    background: #fff; border-bottom: 1px solid var(--border); padding: 12px 24px;
+    background: var(--color-cotton); border-bottom: 1px solid var(--color-rule); padding: 10px 24px;
     display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
   }
-  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
-  .brand-icon {
-    width: 36px; height: 36px; border-radius: 9px; background: #fbbc04; color: #202124;
-    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px;
+  .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--color-ink); }
+  .brand-monogram {
+    width: 32px; height: 32px; border-radius: 7px; background: var(--color-ink); color: var(--color-cotton);
+    font-family: var(--font-serif); font-size: 19px; display: flex; align-items: center; justify-content: center;
   }
-  .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
-  .nav-link {
-    padding: 7px 14px; border-radius: 20px; border: 1px solid var(--border);
-    background: #fff; color: #3c4043; font-size: 12.5px; font-weight: 600; text-decoration: none;
+  .brand-title { font-size: 14.5px; font-weight: 600; letter-spacing: -0.015em; }
+  .brand-sub { font-family: var(--font-mono); font-size: 10.5px; color: var(--color-muted); display: block; }
+
+  .nav-strip {
+    display: flex; align-items: center; gap: 4px; background: var(--color-paper);
+    padding: 4px; border-radius: 10px; border: 1px solid var(--color-rule); flex-wrap: wrap;
   }
-  .nav-link:hover { background: #f1f3f4; }
-  .nav-link.active { background: #fef7e0; color: #b06000; border-color: #fbbc04; font-weight: 700; }
+  .nav-tab {
+    padding: 6px 13px; border-radius: 7px; font-size: 12.5px; font-weight: 500;
+    color: var(--color-muted); text-decoration: none;
+  }
+  .nav-tab:hover { color: var(--color-ink); background: rgba(28, 25, 23, 0.04); }
+  .nav-tab.active {
+    background: var(--color-cotton); color: var(--color-ink); font-weight: 600;
+    box-shadow: var(--edge-stock), 0 1px 3px rgba(28, 25, 23, 0.06);
+  }
 
   .toolbar {
-    padding: 12px 24px; background: #fff; border-bottom: 1px solid var(--border);
+    padding: 12px 24px; background: var(--color-cotton); border-bottom: 1px solid var(--color-rule);
     display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
   }
   input[type=text], select {
-    padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; background: #fff;
+    height: 36px; padding: 0 12px; border: 1px solid var(--color-rule-strong); border-radius: 8px;
+    font-family: var(--font-sans); font-size: 13px; background: #fff; color: var(--color-ink); outline: none;
   }
-  .btn {
-    padding: 7px 12px; border-radius: 7px; border: 1px solid var(--border); background: #fff;
-    font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none; color: var(--text);
+  .btn-stock {
+    height: 34px; padding: 0 12px; border-radius: 7px; border: none;
+    background: var(--color-cotton); color: var(--color-ink); font-family: var(--font-sans);
+    font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: var(--edge-stock), 0 1px 2px rgba(28, 25, 23, 0.05);
   }
-  .btn:hover { background: #f1f3f4; }
+  .btn-caixa { background: var(--color-caixa); color: #fff; }
 
   .kanban-board {
-    flex: 1; display: flex; gap: 14px; overflow-x: auto; padding: 16px 24px; align-items: stretch;
+    flex: 1; display: flex; gap: 14px; overflow-x: auto; padding: 18px 24px; align-items: stretch;
   }
   .kb-col {
-    min-width: 320px; width: 320px; background: #ebedf0; border-radius: 14px;
-    display: flex; flex-direction: column; max-height: 100%; border: 1px solid #dcdfe4;
+    min-width: 325px; width: 325px; background: var(--color-paper-2); border-radius: 13px;
+    display: flex; flex-direction: column; max-height: 100%; border: 1px solid var(--color-rule);
   }
   .kb-header {
-    padding: 12px 14px; border-bottom: 1px solid #dcdfe4; background: #fff;
-    border-radius: 14px 14px 0 0; border-top: 4px solid var(--primary);
+    padding: 13px 15px; border-bottom: 1px solid var(--color-rule); background: var(--color-cotton);
+    border-radius: 13px 13px 0 0;
   }
-  .kb-header-top { display: flex; align-items: center; justify-content: space-between; font-weight: 700; font-size: 13.5px; }
-  .kb-header-sub { font-size: 11.5px; color: var(--muted); margin-top: 4px; display: flex; justify-content: space-between; }
-  .cnt { font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 10px; background: #f1f3f4; color: #3c4043; }
+  .kb-header-top { display: flex; align-items: center; justify-content: space-between; font-weight: 600; font-size: 13.5px; }
+  .kb-header-sub { font-family: var(--font-mono); font-size: 11px; color: var(--color-muted); margin-top: 4px; display: flex; justify-content: space-between; }
+  .cnt { font-family: var(--font-mono); font-weight: 600; font-size: 11.5px; padding: 2px 8px; border-radius: 6px; background: var(--color-paper); color: var(--color-ink); }
   .kb-cards { flex: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 10px; }
   .kb-card {
-    background: #fff; border-radius: 10px; padding: 12px; border: 1px solid #dadce0;
-    box-shadow: 0 1px 3px rgba(0,0,0,.05); cursor: grab; transition: all .12s;
+    background: var(--color-cotton); border-radius: 10px; padding: 13px;
+    box-shadow: var(--edge-stock), 0 2px 5px rgba(28, 25, 23, 0.04); cursor: grab;
+    transition: transform 150ms ease, box-shadow 150ms ease;
   }
-  .kb-card:hover { border-color: var(--primary); box-shadow: 0 5px 14px rgba(0,0,0,.1); }
-  .kb-card-title { font-size: 13px; font-weight: 700; margin: 6px 0 4px; color: #202124; line-height: 1.35; }
+  .kb-card:hover { transform: translateY(-1px); box-shadow: var(--edge-stock), var(--cast-stock); }
+  .kb-card-title { font-size: 13px; font-weight: 600; margin: 7px 0 4px; color: var(--color-ink); line-height: 1.35; }
   .kb-card-fin {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: #f8f9fa;
-    padding: 8px; border-radius: 8px; font-size: 11.5px; margin-top: 8px; border: 1px solid #eef1f5;
+    display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--color-rule);
+    border-radius: 8px; overflow: hidden; font-size: 11.5px; margin-top: 9px; background: #fff;
   }
-  .pill { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; display: inline-flex; align-items: center; gap: 4px; }
-  .pill-roi { background: var(--green-bg); color: var(--green); border: 1px solid #ceead6; }
-  .pill-60d { background: #fef7e0; color: #b06000; border: 1px solid #fde293; }
+  .kb-card-fin > div { padding: 7px 9px; }
+  .kb-card-fin > div:first-child { border-right: 1px solid var(--color-rule); }
+  .pill { font-size: 10.5px; font-weight: 600; padding: 2px 7px; border-radius: 5px; display: inline-flex; align-items: center; }
+  .pill-roi { background: var(--color-emerald-tint); color: var(--color-emerald); }
+  .pill-60d { background: var(--color-accent-tint); color: var(--color-accent); }
 </style>
 </head>
 <body>
 
 <header>
   <a class="brand" href="index.html">
-    <div class="brand-icon">📌</div>
+    <div class="brand-monogram">12</div>
     <div>
-      <strong style="font-size:16px;display:block">Kanban de Oportunidades – Funil 12º RI & Leilão Caixa</strong>
-      <span style="font-size:11.5px;color:var(--muted)">Arraste cartões para "⭐ Minha Carteira / Dar Lance" ou clique para abrir no Mapa ou na Caixa</span>
+      <span class="brand-title">Quadro Kanban · Funil de Oportunidades 12º RI &amp; Caixa</span>
+      <span class="brand-sub">Arraste qualquer cartão para "Minha Carteira / Dar Lance" · Atualizado em 26/11/2026, 09:24:29</span>
     </div>
   </a>
-  <nav class="nav-links">
-    <a class="nav-link" href="index.html">🗺️ Voltar ao Mapa Principal</a>
-    <a class="nav-link" href="caixa.html">🏦 Imóveis da Caixa</a>
-    <a class="nav-link" href="intimacoes.html">⚖️ Intimações & Consolidados (60d)</a>
-    <a class="nav-link active" href="kanban.html">📌 Kanban de Oportunidades</a>
+  <nav class="nav-strip">
+    <a class="nav-tab" href="index.html">Mapa Geográfico</a>
+    <a class="nav-tab" href="caixa.html">Vitrine Caixa</a>
+    <a class="nav-tab" href="intimacoes.html">Consolidados 60 Dias</a>
+    <a class="nav-tab active" href="kanban.html">Quadro Kanban</a>
   </nav>
 </header>
 
 <div class="toolbar">
   <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;flex:1">
-    <input type="text" id="kbSearch" placeholder="🔎 Filtrar por endereço, condomínio, matrícula, bairro..." style="width:340px" oninput="renderKanban()">
+    <input type="text" id="kbSearch" placeholder="Filtrar por endereço, condomínio, matrícula, bairro..." style="width:340px" oninput="renderKanban()">
     <select id="kbBairro" onchange="renderKanban()"><option value="">Todos os bairros</option></select>
   </div>
-  <button class="btn" onclick="limparFavoritosKanban()">🗑️ Limpar Minha Carteira</button>
+  <button class="btn-stock" onclick="limparFavoritosKanban()">Limpar Minha Carteira</button>
 </div>
 
 <div class="kanban-board" id="kanbanBoard"></div>
@@ -161,19 +189,19 @@ function renderKanban() {
   });
 
   const cols = [
-    { id: 'fav',   title: '⭐ Minha Carteira / Dar Lance', color: '#fbbc04', items: base.filter(d => favs.has(String(d.m))) },
-    { id: 'pre60', title: '🔥 Pré-Leilão (< 60d Consolidado)', color: '#e65100', items: base.filter(d => d.u60 && !d.cx) },
-    { id: 'dir',   title: '💰 Caixa: Venda Direta Online', color: '#005ca9', items: base.filter(d => d.cx && /Direta/i.test(d.cx.md)) },
-    { id: 'lic',   title: '🔨 Caixa: Leilão / Venda Online', color: '#1a73e8', items: base.filter(d => d.cx && !/Direta/i.test(d.cx.md)) },
-    { id: 'agu',   title: '⏳ Consolidados (> 60d s/ Caixa)', color: '#70757a', items: base.filter(d => d.g !== 'SO_INT' && !d.u60 && !d.cx) },
-    { id: 'int',   title: '🔵 Só Intimados (Em Cobrança)', color: '#5f6368', items: base.filter(d => d.g === 'SO_INT') }
+    { id: 'fav',   title: 'Minha Carteira / Dar Lance', items: base.filter(d => favs.has(String(d.m))) },
+    { id: 'pre60', title: 'Pré-Leilão (< 60d Consolidado)', items: base.filter(d => d.u60 && !d.cx) },
+    { id: 'dir',   title: 'Caixa: Venda Direta Online', items: base.filter(d => d.cx && /Direta/i.test(d.cx.md)) },
+    { id: 'lic',   title: 'Caixa: Leilão SFI / Venda Online', items: base.filter(d => d.cx && !/Direta/i.test(d.cx.md)) },
+    { id: 'agu',   title: 'Consolidados (> 60d s/ Caixa)', items: base.filter(d => d.g !== 'SO_INT' && !d.u60 && !d.cx) },
+    { id: 'int',   title: 'Só Intimados (Em Cobrança)', items: base.filter(d => d.g === 'SO_INT') }
   ];
 
   document.getElementById('kanbanBoard').innerHTML = cols.map(col => {
     const ordenados = [...col.items].sort((a, b) => (b.lp ?? -999) - (a.lp ?? -999));
     const somaMerc = ordenados.reduce((s, d) => s + (d.vm || 0), 0);
     return `<div class="kb-col" ondragover="allowDropKanban(event)" ondrop="dropKanban(event, '${col.id}')">
-      <div class="kb-header" style="border-top-color:${col.color}">
+      <div class="kb-header">
         <div class="kb-header-top">
           <span>${col.title}</span>
           <span class="cnt">${ordenados.length}</span>
@@ -189,27 +217,27 @@ function renderKanban() {
           return `
           <div class="kb-card" draggable="true" ondragstart="dragKanban(event, '${d.m}')">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:4px">
-              <span style="font-weight:800;font-size:12px;color:#1a73e8">Mat. ${d.m}</span>
-              <div style="display:flex;gap:4px;align-items:center">
-                ${d.lp != null ? `<span class="pill pill-roi">+${d.lp}% Lucro</span>` : (d.u60 ? `<span class="pill pill-60d">Há ${d.ddc}d</span>` : '')}
-                <button onclick="toggleFav('${d.m}')" style="border:none;background:none;cursor:pointer;font-size:14px" title="Favoritar na Carteira">${isFav ? '⭐' : '☆'}</button>
+              <span style="font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--color-ink)">Mat. ${d.m}</span>
+              <div style="display:flex;gap:5px;align-items:center">
+                ${d.lp != null ? `<span class="pill pill-roi">+${d.lp}% ROI</span>` : (d.u60 ? `<span class="pill pill-60d">Há ${d.ddc}d</span>` : '')}
+                <button class="btn-stock" style="height:22px;padding:0 7px;font-size:10.5px" onclick="toggleFav('${d.m}')">${isFav ? 'Salvo' : 'Salvar'}</button>
               </div>
             </div>
             <div class="kb-card-title">${d.e}</div>
-            <div style="font-size:11.5px;color:var(--muted)">📍 ${d.b || 'RJ'} ${d.c ? `· <b>${d.c}</b>` : ''}</div>
+            <div style="font-size:11.5px;color:var(--color-muted)"><b>${d.b || 'RJ'}</b> ${d.c ? `· ${d.c}` : ''}</div>
             <div class="kb-card-fin">
               <div>
-                <small style="color:var(--muted);display:block">${d.cx ? '🏦 Arrematação' : 'Dívida / Aval.'}</small>
-                <b style="color:${d.cx ? '#005ca9' : '#c5221f'}">${d.cx ? brl(d.cx.pr) : brl(d.dv || d.vp)}</b>
+                <small style="color:var(--color-muted);display:block">${d.cx ? 'Arrematação' : 'Dívida / ITBI'}</small>
+                <b style="font-family:var(--font-mono);color:${d.cx ? 'var(--color-caixa)' : 'var(--color-ambas)'}">${d.cx ? brl(d.cx.pr) : brl(d.dv || d.vp)}</b>
               </div>
               <div>
-                <small style="color:var(--muted);display:block">🏘️ Mercado</small>
-                <b style="color:var(--green)">${brl(d.vm)}</b>
+                <small style="color:var(--color-muted);display:block">Mercado</small>
+                <b style="font-family:var(--font-mono);color:var(--color-emerald)">${brl(d.vm)}</b>
               </div>
             </div>
-            <div style="display:flex;gap:6px;margin-top:8px">
-              <a class="btn" style="flex:1;text-align:center;padding:5px" href="index.html?mat=${d.m}">🗺️ Ver no Mapa</a>
-              ${d.cx ? `<a class="btn" style="flex:1;text-align:center;padding:5px;background:#005ca9;color:#fff;border-color:#005ca9" href="https://venda-imoveis.caixa.gov.br/sistema/detalhe-imovel.asp?hdnimovel=${d.cx.id}" target="_blank">🏦 Caixa ↗</a>` : ''}
+            <div style="display:flex;gap:6px;margin-top:9px">
+              <a class="btn-stock" style="flex:1" href="index.html?mat=${d.m}">Ver no Mapa</a>
+              ${d.cx ? `<a class="btn-stock btn-caixa" style="flex:1" href="https://venda-imoveis.caixa.gov.br/sistema/detalhe-imovel.asp?hdnimovel=${d.cx.id}" target="_blank">Caixa</a>` : ''}
             </div>
           </div>`;
         }).join('')}
