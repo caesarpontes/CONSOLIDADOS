@@ -10,27 +10,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   /* Hallmark · v2.0.0 · theme: coral (dealt 1/3, modern-minimal) · Impeccable · UI/UX Pro Max */
-  :root {
-    --color-paper: #f6f4f0;
-    --color-paper-2: #efeae2;
-    --color-paper-3: #e5dfd5;
-    --color-cotton: #fcfbf9;
-    --color-ink: #1c1917;
-    --color-ink-2: #332e2a;
-    --color-muted: #6b635b;
-    --color-rule: rgba(28, 25, 23, 0.10);
-    --color-rule-strong: rgba(28, 25, 23, 0.18);
-    --color-accent: #bf4520;
-    --color-accent-tint: rgba(191, 69, 32, 0.08);
-    --color-caixa: #0f4c81;
-    --color-emerald: #0f6e56;
-    --color-emerald-tint: rgba(15, 110, 86, 0.09);
-    --color-ambas: #b8332a;
+    :root {
+    --color-paper: #f8fafc;
+    --color-paper-2: #f1f5f9;
+    --color-paper-3: #e2e8f0;
+    --color-cotton: #ffffff;
+    --color-ink: #0f172a;
+    --color-ink-2: #1e293b;
+    --color-muted: #64748b;
+    --color-rule: #e2e8f0;
+    --color-rule-strong: #cbd5e1;
+    --color-accent: #1d4ed8;
+    --color-accent-hover: #1e40af;
+    --color-accent-tint: rgba(29, 78, 216, 0.08);
+    --color-royal: #1d4ed8;
+    --color-royal-light: #2563eb;
+    --color-royal-dark: #1e40af;
+    --color-royal-tint: rgba(29, 78, 216, 0.08);
+    --color-caixa: #005ca9;
+    --color-caixa-tint: rgba(0, 92, 169, 0.08);
+    --color-emerald: #059669;
+    --color-emerald-tint: rgba(5, 150, 105, 0.08);
+    --color-ambas: #dc2626;
+    --color-so-int: #2563eb;
+    --color-so-cons: #64748b;
     --font-sans: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-serif: 'Instrument Serif', Georgia, serif;
     --font-mono: 'Geist Mono', ui-monospace, monospace;
-    --edge-stock: inset 0 1px 0 rgba(255,255,255,0.9), 0 0 0 1px rgba(28, 25, 23, 0.10);
-    --cast-stock: 0 8px 24px -6px rgba(28, 25, 23, 0.09), 0 2px 6px -1px rgba(28, 25, 23, 0.04);
+    --radius-stock: 10px;
+    --radius-card: 14px;
+    --edge-stock: 0 1px 2px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(15, 23, 42, 0.08);
+    --cast-stock: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 2px 4px -1px rgba(15, 23, 42, 0.03);
+    --cast-float: 0 16px 36px -8px rgba(15, 23, 42, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.05);
+    --press-groove: inset 0 2px 4px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(15, 23, 42, 0.08);
   }
   * { box-sizing: border-box; }
   body { margin: 0; font-family: var(--font-sans); font-variant-numeric: tabular-nums; height: 100vh; display: flex; flex-direction: column; color: var(--color-ink); background: var(--color-paper); overflow: hidden; -webkit-font-smoothing: antialiased; }
@@ -40,25 +52,31 @@
     display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
   }
   .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--color-ink); }
-  .brand-monogram {
-    width: 32px; height: 32px; border-radius: 7px; background: var(--color-ink); color: var(--color-cotton);
-    font-family: var(--font-serif); font-size: 19px; display: flex; align-items: center; justify-content: center;
+    .brand-monogram {
+    width: 34px; height: 34px; border-radius: 9px;
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+    color: #ffffff;
+    font-family: var(--font-sans); font-size: 13.5px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.32);
+    letter-spacing: 0.02em;
+    flex: none;
   }
   .brand-title { font-size: 14.5px; font-weight: 600; letter-spacing: -0.015em; }
   .brand-sub { font-family: var(--font-mono); font-size: 10.5px; color: var(--color-muted); display: block; }
 
   .nav-strip {
-    display: flex; align-items: center; gap: 4px; background: var(--color-paper);
+    display: flex; align-items: center; gap: 4px; background: var(--color-paper-2);
     padding: 4px; border-radius: 10px; border: 1px solid var(--color-rule); flex-wrap: wrap;
   }
   .nav-tab {
     padding: 6px 13px; border-radius: 7px; font-size: 12.5px; font-weight: 500;
     color: var(--color-muted); text-decoration: none;
   }
-  .nav-tab:hover { color: var(--color-ink); background: rgba(28, 25, 23, 0.04); }
+  .nav-tab:hover:not(.active) { color: var(--color-ink); background: var(--color-paper-3); }
   .nav-tab.active {
-    background: var(--color-cotton); color: var(--color-ink); font-weight: 600;
-    box-shadow: var(--edge-stock), 0 1px 3px rgba(28, 25, 23, 0.06);
+    background: var(--color-accent); color: #ffffff; font-weight: 600;
+    box-shadow: 0 2px 8px rgba(29, 78, 216, 0.28);
   }
 
   .toolbar {
@@ -74,7 +92,7 @@
     background: var(--color-cotton); color: var(--color-ink); font-family: var(--font-sans);
     font-size: 12px; font-weight: 600; cursor: pointer; text-decoration: none;
     display: inline-flex; align-items: center; justify-content: center;
-    box-shadow: var(--edge-stock), 0 1px 2px rgba(28, 25, 23, 0.05);
+    box-shadow: var(--edge-stock), 0 1px 2px rgba(15, 23, 42, 0.05);
   }
   .btn-caixa { background: var(--color-caixa); color: #fff; }
 
@@ -95,7 +113,7 @@
   .kb-cards { flex: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 10px; }
   .kb-card {
     background: var(--color-cotton); border-radius: 10px; padding: 13px;
-    box-shadow: var(--edge-stock), 0 2px 5px rgba(28, 25, 23, 0.04); cursor: grab;
+    box-shadow: var(--edge-stock), 0 2px 5px rgba(15, 23, 42, 0.04); cursor: grab;
     transition: transform 150ms ease, box-shadow 150ms ease;
   }
   .kb-card:hover { transform: translateY(-1px); box-shadow: var(--edge-stock), var(--cast-stock); }
@@ -118,7 +136,7 @@
     <div class="brand-monogram">FA</div>
     <div>
       <span class="brand-title">Fiducia Analytics · Funil de Oportunidades &amp; Leilões Caixa</span>
-      <span class="brand-sub">Arraste qualquer cartão para "Minha Carteira / Dar Lance" · Atualizado em 27/11/2026, 00:13:47</span>
+      <span class="brand-sub">Arraste qualquer cartão para "Minha Carteira / Dar Lance" · Atualizado em 27/11/2026, 00:25:23</span>
     </div>
   </a>
   <nav class="nav-strip">

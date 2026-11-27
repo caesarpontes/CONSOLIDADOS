@@ -14,33 +14,39 @@
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <style>
   /* Hallmark · v2.0.0 · theme: coral (dealt 1/3, modern-minimal) · Impeccable · UI/UX Pro Max · Diagram Design */
-  :root {
-    --color-paper: #f6f4f0;
-    --color-paper-2: #efeae2;
-    --color-paper-3: #e5dfd5;
-    --color-cotton: #fcfbf9;
-    --color-ink: #1c1917;
-    --color-ink-2: #332e2a;
-    --color-muted: #6b635b;
-    --color-rule: rgba(28, 25, 23, 0.10);
-    --color-rule-strong: rgba(28, 25, 23, 0.18);
-    --color-accent: #bf4520;
-    --color-accent-tint: rgba(191, 69, 32, 0.08);
-    --color-caixa: #0f4c81;
-    --color-caixa-tint: rgba(15, 76, 129, 0.08);
-    --color-emerald: #0f6e56;
-    --color-emerald-tint: rgba(15, 110, 86, 0.09);
-    --color-ambas: #b8332a;
-    --color-so-int: #1d5fa7;
-    --color-so-cons: #6b635b;
+    :root {
+    --color-paper: #f8fafc;
+    --color-paper-2: #f1f5f9;
+    --color-paper-3: #e2e8f0;
+    --color-cotton: #ffffff;
+    --color-ink: #0f172a;
+    --color-ink-2: #1e293b;
+    --color-muted: #64748b;
+    --color-rule: #e2e8f0;
+    --color-rule-strong: #cbd5e1;
+    --color-accent: #1d4ed8;
+    --color-accent-hover: #1e40af;
+    --color-accent-tint: rgba(29, 78, 216, 0.08);
+    --color-royal: #1d4ed8;
+    --color-royal-light: #2563eb;
+    --color-royal-dark: #1e40af;
+    --color-royal-tint: rgba(29, 78, 216, 0.08);
+    --color-caixa: #005ca9;
+    --color-caixa-tint: rgba(0, 92, 169, 0.08);
+    --color-emerald: #059669;
+    --color-emerald-tint: rgba(5, 150, 105, 0.08);
+    --color-ambas: #dc2626;
+    --color-so-int: #2563eb;
+    --color-so-cons: #64748b;
     --font-sans: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-serif: 'Instrument Serif', Georgia, serif;
     --font-mono: 'Geist Mono', ui-monospace, monospace;
     --radius-stock: 10px;
     --radius-card: 14px;
-    --edge-stock: inset 0 1px 0 rgba(255,255,255,0.9), 0 0 0 1px rgba(28, 25, 23, 0.10);
-    --cast-stock: 0 8px 24px -6px rgba(28, 25, 23, 0.10), 0 2px 6px -1px rgba(28, 25, 23, 0.05);
-    --cast-float: 0 18px 42px -10px rgba(28, 25, 23, 0.16), 0 4px 12px -2px rgba(28, 25, 23, 0.08);
+    --edge-stock: 0 1px 2px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(15, 23, 42, 0.08);
+    --cast-stock: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 2px 4px -1px rgba(15, 23, 42, 0.03);
+    --cast-float: 0 16px 36px -8px rgba(15, 23, 42, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.05);
+    --press-groove: inset 0 2px 4px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(15, 23, 42, 0.08);
   }
   * { box-sizing: border-box; }
   html, body {
@@ -55,14 +61,14 @@
   ::selection { background: var(--color-accent-tint); color: var(--color-accent); }
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: rgba(28, 25, 23, 0.18); border-radius: 99px; }
+  ::-webkit-scrollbar-thumb { background: rgba(15, 23, 42, 0.18); border-radius: 99px; }
 
   .ico { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.75; fill: none; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 
   /* TELA DE AUTENTICAÇÃO EDITORIAL (HALLMARK CORAL) */
   #authGate {
     position: fixed; inset: 0; z-index: 99999;
-    background: radial-gradient(90% 120% at 15% 20%, #fcfbf9 0%, #efeae2 65%, #e5dfd5 100%);
+    background: radial-gradient(100% 120% at 50% 0%, #eff6ff 0%, #f8fafc 60%, #e2e8f0 100%);
     display: flex; align-items: center; justify-content: center; padding: 20px;
   }
   .auth-card {
@@ -95,24 +101,24 @@
 
   /* BARRA DE RADAR CAIXA (FINA, EDITORIAL, SEM GRADIENTE CARNAVALESCO) */
   #notifBanner {
-    height: 36px; background: var(--color-ink); color: var(--color-cotton);
+    height: 36px; background: linear-gradient(90deg, #0f172a 0%, #1e3a8a 100%); color: #ffffff;
     padding: 0 18px; font-size: 12px; display: flex; align-items: center;
     justify-content: space-between; gap: 14px; z-index: 1005; border-bottom: 1px solid rgba(255,255,255,0.08);
   }
   .notif-dot {
-    width: 7px; height: 7px; border-radius: 50%; background: #e06d44;
-    box-shadow: 0 0 0 3px rgba(224, 109, 68, 0.25); flex: none;
+    width: 7px; height: 7px; border-radius: 50%; background: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35); flex: none;
   }
   .notif-label {
-    font-family: var(--font-mono); font-size: 11px; color: #d6cfc7; white-space: nowrap;
+    font-family: var(--font-mono); font-size: 11px; color: #94a3b8; white-space: nowrap;
   }
   .notif-ticker {
     flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     color: var(--color-cotton); text-decoration: none; font-weight: 500;
   }
-  .notif-ticker:hover { text-decoration: underline; text-decoration-color: #e06d44; }
+  .notif-ticker:hover { text-decoration: underline; text-decoration-color: #38bdf8; }
   .radar-pill {
-    font-family: var(--font-mono); font-size: 11px; color: #d6cfc7;
+    font-family: var(--font-mono); font-size: 11px; color: #94a3b8;
     padding: 2px 8px; border-radius: 4px; background: rgba(255,255,255,0.07);
   }
   .radar-link {
@@ -128,32 +134,38 @@
     padding: 0 18px; z-index: 1000; gap: 12px;
   }
   .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--color-ink); }
-  .brand-monogram {
-    width: 32px; height: 32px; border-radius: 7px; background: var(--color-ink); color: var(--color-cotton);
-    font-family: var(--font-serif); font-size: 19px; display: flex; align-items: center; justify-content: center;
+    .brand-monogram {
+    width: 34px; height: 34px; border-radius: 9px;
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+    color: #ffffff;
+    font-family: var(--font-sans); font-size: 13.5px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.32);
+    letter-spacing: 0.02em;
+    flex: none;
   }
   .brand-title { font-size: 14.5px; font-weight: 600; letter-spacing: -0.015em; color: var(--color-ink); }
   .brand-sub { font-family: var(--font-mono); font-size: 10.5px; color: var(--color-muted); display: block; }
 
   .nav-strip {
-    display: flex; align-items: center; gap: 4px; background: var(--color-paper);
-    padding: 4px; border-radius: 10px; border: 1px solid var(--color-rule);
+    display: flex; align-items: center; gap: 4px; background: var(--color-paper-2);
+    padding: 4px; border-radius: 10px; border: 1px solid var(--color-rule); flex-wrap: wrap;
   }
   .nav-tab {
     padding: 6px 13px; border-radius: 7px; font-size: 12.5px; font-weight: 500;
     color: var(--color-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 7px;
     transition: background 150ms ease, color 150ms ease;
   }
-  .nav-tab:hover { color: var(--color-ink); background: rgba(28, 25, 23, 0.04); }
+  .nav-tab:hover:not(.active) { color: var(--color-ink); background: var(--color-paper-3); }
   .nav-tab.active {
-    background: var(--color-cotton); color: var(--color-ink); font-weight: 600;
-    box-shadow: var(--edge-stock), 0 1px 3px rgba(28, 25, 23, 0.06);
+    background: var(--color-accent); color: #ffffff; font-weight: 600;
+    box-shadow: 0 2px 8px rgba(29, 78, 216, 0.28);
   }
   .nav-tab .badge-cnt {
     font-family: var(--font-mono); font-size: 10.5px; padding: 1px 6px; border-radius: 5px;
     background: var(--color-paper-2); color: var(--color-ink-2);
   }
-  .nav-tab.active .badge-cnt { background: var(--color-accent-tint); color: var(--color-accent); font-weight: 600; }
+  .nav-tab.active .badge-cnt { background: rgba(255, 255, 255, 0.22); color: #ffffff; }
 
   .top-actions { display: flex; align-items: center; gap: 8px; }
 
@@ -163,31 +175,31 @@
     background: var(--color-cotton); color: var(--color-ink); font-family: var(--font-sans);
     font-size: 12.5px; font-weight: 600; cursor: pointer; text-decoration: none;
     display: inline-flex; align-items: center; gap: 7px;
-    box-shadow: var(--edge-stock), 0 1px 2px rgba(28, 25, 23, 0.05);
+    box-shadow: var(--edge-stock), 0 1px 2px rgba(15, 23, 42, 0.05);
     transition: transform 150ms ease, box-shadow 150ms ease;
   }
   .btn-stock:hover { transform: translateY(-1px); box-shadow: var(--edge-stock), var(--cast-stock); }
   .btn-stock:active { transform: translateY(0); }
   .btn-ink {
     background: var(--color-ink); color: var(--color-cotton);
-    box-shadow: 0 2px 6px rgba(28, 25, 23, 0.16);
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.16);
   }
-  .btn-ink:hover { background: var(--color-ink-2); box-shadow: 0 6px 16px rgba(28, 25, 23, 0.22); }
+  .btn-ink:hover { background: var(--color-ink-2); box-shadow: 0 6px 16px rgba(15, 23, 42, 0.22); }
   .btn-coral {
     background: var(--color-accent); color: #fff;
-    box-shadow: 0 2px 6px rgba(191, 69, 32, 0.25);
+    box-shadow: 0 2px 6px rgba(29, 78, 216, 0.25);
   }
 
   /* PALCO DO MAPA + PAINÉIS FLUTUANTES ESTILO ARQUITETÔNICO */
   #main { flex: 1; min-height: 0; width: 100%; display: flex; position: relative; overflow: hidden; }
   #mapWrap { flex: 1; min-height: 0; width: 100%; height: 100%; display: flex; position: relative; z-index: 1; isolation: isolate; }
-  #map { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; background: #eae6df; }
+  #map { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; background: #f1f5f9; }
 
   /* PAINEL LATERAL FLUTUANTE (EM VEZ DE UMA BARRA PESADA GRUDADA NA BORDA) */
   #side {
     position: absolute; top: 14px; left: 14px; bottom: 14px;
     width: 345px; max-width: calc(100vw - 28px);
-    background: rgba(252, 251, 249, 0.96); backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(12px);
     border-radius: var(--radius-card); box-shadow: var(--edge-stock), var(--cast-float);
     display: flex; flex-direction: column; z-index: 30; overflow: hidden;
     transition: transform 220ms cubic-bezier(.16,1,.3,1), opacity 180ms ease;
@@ -338,7 +350,7 @@
 
   /* POPUP CENTRAL DE RESULTADOS */
   .modal-overlay {
-    position: fixed; inset: 0; background: rgba(28, 25, 23, 0.45); z-index: 2000;
+    position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45); z-index: 2000;
     display: none; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(3px);
   }
   .modal-overlay.open { display: flex; }
@@ -356,7 +368,7 @@
   .res-card {
     background: var(--color-cotton); border: 1px solid var(--color-rule); border-radius: 12px; padding: 14px;
     display: flex; flex-direction: column; justify-content: space-between; gap: 10px;
-    cursor: pointer; box-shadow: 0 1px 3px rgba(28, 25, 23, 0.04);
+    cursor: pointer; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
     transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
   }
   .res-card:hover { border-color: var(--color-ink); box-shadow: var(--cast-stock); transform: translateY(-1px); }
@@ -367,7 +379,7 @@
   .pill-60d { background: var(--color-accent-tint); color: var(--color-accent); }
   .pill-cx { background: var(--color-caixa-tint); color: var(--color-caixa); }
 
-  .cl { border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 600; color: var(--color-ink); font-size: 12px; box-shadow: 0 3px 10px rgba(28, 25, 23, 0.25); }
+  .cl { border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-weight: 600; color: var(--color-ink); font-size: 12px; box-shadow: 0 3px 10px rgba(15, 23, 42, 0.25); }
   .cl div { background: var(--color-cotton); border-radius: 50%; width: 74%; height: 74%; display: flex; align-items: center; justify-content: center; }
   .legend { background: var(--color-cotton); border-radius: 10px; box-shadow: var(--edge-stock), var(--cast-stock); font-size: 12px; line-height: 21px; }
   .legend .dot { display: inline-block; vertical-align: middle; margin-right: 7px; width: 10px; height: 10px; }
@@ -433,7 +445,7 @@
       <div class="brand-monogram">FA</div>
       <div>
         <span class="brand-title">Fiducia Analytics · Zona Oeste RJ</span>
-        <span class="brand-sub">Atualizado em 27/11/2026, 00:13:47</span>
+        <span class="brand-sub">Atualizado em 27/11/2026, 00:25:23</span>
       </div>
     </a>
   </div>
@@ -801,12 +813,12 @@ map.addLayer(cluster);
 
 function criarIconePin(cor, aprox, selecionado = false) {
   const w = selecionado ? 34 : 24, h = selecionado ? 46 : 34;
-  const stroke = selecionado ? '#bf4520' : (aprox ? '#1c1917' : '#ffffff');
+  const stroke = selecionado ? '#1d4ed8' : (aprox ? '#0f172a' : '#ffffff');
   const sw = selecionado ? 3 : 1.8;
   const dash = (!selecionado && aprox) ? 'stroke-dasharray="3,2"' : '';
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 24 34" style="filter:drop-shadow(0 3px 5px rgba(28,25,23,.32))">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 24 34" style="filter:drop-shadow(0 3px 6px rgba(15,23,42,.24))">
     <path d="M12 1C6.2 1 1.5 5.7 1.5 11.5C1.5 19.4 12 32.5 12 32.5C12 32.5 22.5 19.4 22.5 11.5C22.5 5.7 17.8 1 12 1Z" fill="${cor}" stroke="${stroke}" stroke-width="${sw}" ${dash}/>
-    <circle cx="12" cy="11.5" r="4.2" fill="#fcfbf9"/>
+    <circle cx="12" cy="11.5" r="4.2" fill="#ffffff"/>
   </svg>`;
   return L.divIcon({ html: svg, className: '', iconSize: [w, h], iconAnchor: [w / 2, h - 1], tooltipAnchor: [0, -h + 4] });
 }

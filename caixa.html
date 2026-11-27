@@ -10,29 +10,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   /* Hallmark · v2.0.0 · theme: coral (dealt 1/3, modern-minimal) · Impeccable · UI/UX Pro Max · Diagram Design */
-  :root {
-    --color-paper: #f6f4f0;
-    --color-paper-2: #efeae2;
-    --color-paper-3: #e5dfd5;
-    --color-cotton: #fcfbf9;
-    --color-ink: #1c1917;
-    --color-ink-2: #332e2a;
-    --color-muted: #6b635b;
-    --color-rule: rgba(28, 25, 23, 0.10);
-    --color-rule-strong: rgba(28, 25, 23, 0.18);
-    --color-accent: #bf4520;
-    --color-accent-tint: rgba(191, 69, 32, 0.08);
-    --color-caixa: #0f4c81;
-    --color-caixa-tint: rgba(15, 76, 129, 0.08);
-    --color-emerald: #0f6e56;
-    --color-emerald-tint: rgba(15, 110, 86, 0.09);
-    --color-ambas: #b8332a;
+    :root {
+    --color-paper: #f8fafc;
+    --color-paper-2: #f1f5f9;
+    --color-paper-3: #e2e8f0;
+    --color-cotton: #ffffff;
+    --color-ink: #0f172a;
+    --color-ink-2: #1e293b;
+    --color-muted: #64748b;
+    --color-rule: #e2e8f0;
+    --color-rule-strong: #cbd5e1;
+    --color-accent: #1d4ed8;
+    --color-accent-hover: #1e40af;
+    --color-accent-tint: rgba(29, 78, 216, 0.08);
+    --color-royal: #1d4ed8;
+    --color-royal-light: #2563eb;
+    --color-royal-dark: #1e40af;
+    --color-royal-tint: rgba(29, 78, 216, 0.08);
+    --color-caixa: #005ca9;
+    --color-caixa-tint: rgba(0, 92, 169, 0.08);
+    --color-emerald: #059669;
+    --color-emerald-tint: rgba(5, 150, 105, 0.08);
+    --color-ambas: #dc2626;
+    --color-so-int: #2563eb;
+    --color-so-cons: #64748b;
     --font-sans: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-serif: 'Instrument Serif', Georgia, serif;
     --font-mono: 'Geist Mono', ui-monospace, monospace;
-    --edge-stock: inset 0 1px 0 rgba(255,255,255,0.9), 0 0 0 1px rgba(28, 25, 23, 0.10);
-    --cast-stock: 0 8px 24px -6px rgba(28, 25, 23, 0.09), 0 2px 6px -1px rgba(28, 25, 23, 0.04);
-    --press-groove: inset 1px 1.5px 3px rgba(28, 25, 23, 0.12), inset -1px -1px 0 rgba(255,255,255,0.85), 0 0 0 1px rgba(28, 25, 23, 0.08);
+    --radius-stock: 10px;
+    --radius-card: 14px;
+    --edge-stock: 0 1px 2px rgba(15, 23, 42, 0.05), 0 0 0 1px rgba(15, 23, 42, 0.08);
+    --cast-stock: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 2px 4px -1px rgba(15, 23, 42, 0.03);
+    --cast-float: 0 16px 36px -8px rgba(15, 23, 42, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.05);
+    --press-groove: inset 0 2px 4px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(15, 23, 42, 0.08);
   }
   * { box-sizing: border-box; }
   body {
@@ -44,13 +54,13 @@
 
   /* BARRA DE RADAR CAIXA (INK BAR) */
   #radarBar {
-    background: var(--color-ink); color: var(--color-cotton); padding: 8px 24px;
+    background: linear-gradient(90deg, #0f172a 0%, #1e3a8a 100%); color: #ffffff; padding: 8px 24px;
     display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
     font-size: 12px;
   }
   .notif-dot {
-    width: 7px; height: 7px; border-radius: 50%; background: #e06d44;
-    box-shadow: 0 0 0 3px rgba(224, 109, 68, 0.25); flex: none;
+    width: 7px; height: 7px; border-radius: 50%; background: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.35); flex: none;
   }
 
   /* BARRA DE NAVEGAÇÃO SUPERIOR */
@@ -60,25 +70,31 @@
     position: sticky; top: 0; z-index: 100;
   }
   .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--color-ink); }
-  .brand-monogram {
-    width: 32px; height: 32px; border-radius: 7px; background: var(--color-ink); color: var(--color-cotton);
-    font-family: var(--font-serif); font-size: 19px; display: flex; align-items: center; justify-content: center;
+    .brand-monogram {
+    width: 34px; height: 34px; border-radius: 9px;
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+    color: #ffffff;
+    font-family: var(--font-sans); font-size: 13.5px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.32);
+    letter-spacing: 0.02em;
+    flex: none;
   }
   .brand-title { font-size: 14.5px; font-weight: 600; letter-spacing: -0.015em; }
   .brand-sub { font-family: var(--font-mono); font-size: 10.5px; color: var(--color-muted); display: block; }
 
   .nav-strip {
-    display: flex; align-items: center; gap: 4px; background: var(--color-paper);
+    display: flex; align-items: center; gap: 4px; background: var(--color-paper-2);
     padding: 4px; border-radius: 10px; border: 1px solid var(--color-rule); flex-wrap: wrap;
   }
   .nav-tab {
     padding: 6px 13px; border-radius: 7px; font-size: 12.5px; font-weight: 500;
     color: var(--color-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 7px;
   }
-  .nav-tab:hover { color: var(--color-ink); background: rgba(28, 25, 23, 0.04); }
+  .nav-tab:hover:not(.active) { color: var(--color-ink); background: var(--color-paper-3); }
   .nav-tab.active {
-    background: var(--color-cotton); color: var(--color-ink); font-weight: 600;
-    box-shadow: var(--edge-stock), 0 1px 3px rgba(28, 25, 23, 0.06);
+    background: var(--color-accent); color: #ffffff; font-weight: 600;
+    box-shadow: 0 2px 8px rgba(29, 78, 216, 0.28);
   }
 
   .container { max-width: 1440px; margin: 0 auto; padding: 24px; }
@@ -89,7 +105,7 @@
     background: var(--color-cotton); color: var(--color-ink); font-family: var(--font-sans);
     font-size: 12.5px; font-weight: 600; cursor: pointer; text-decoration: none;
     display: inline-flex; align-items: center; justify-content: center; gap: 7px;
-    box-shadow: var(--edge-stock), 0 1px 2px rgba(28, 25, 23, 0.05);
+    box-shadow: var(--edge-stock), 0 1px 2px rgba(15, 23, 42, 0.05);
     transition: transform 150ms ease, box-shadow 150ms ease; white-space: nowrap;
   }
   .btn-stock:hover { transform: translateY(-1px); box-shadow: var(--edge-stock), var(--cast-stock); }
@@ -108,12 +124,12 @@
     cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 150ms ease;
   }
   .scope-btn.active {
-    background: var(--color-cotton); color: var(--color-ink); font-weight: 600;
-    box-shadow: var(--edge-stock), 0 2px 6px rgba(28, 25, 23, 0.08);
+    background: var(--color-cotton); color: var(--color-accent); font-weight: 600;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
   }
   .scope-cnt {
     font-family: var(--font-mono); font-size: 11px; padding: 2px 7px; border-radius: 5px;
-    background: rgba(28, 25, 23, 0.07); color: var(--color-ink-2);
+    background: rgba(15, 23, 42, 0.07); color: var(--color-ink-2);
   }
   .scope-btn.active .scope-cnt { background: var(--color-accent-tint); color: var(--color-accent); font-weight: 600; }
 
@@ -123,12 +139,12 @@
   }
   .mod-card {
     background: var(--color-cotton); border-radius: 11px; padding: 14px 16px;
-    cursor: pointer; box-shadow: var(--edge-stock), 0 1px 3px rgba(28, 25, 23, 0.04);
+    cursor: pointer; box-shadow: var(--edge-stock), 0 1px 3px rgba(15, 23, 42, 0.04);
     transition: transform 150ms ease, box-shadow 150ms ease;
   }
   .mod-card:hover { transform: translateY(-1px); box-shadow: var(--edge-stock), var(--cast-stock); }
   .mod-card.active {
-    background: #fff; box-shadow: inset 0 0 0 1.5px var(--color-ink), var(--cast-stock);
+    background: #ffffff; box-shadow: inset 0 0 0 2px var(--color-accent), 0 4px 14px rgba(29, 78, 216, 0.12);
   }
   .mod-card small { font-size: 12px; color: var(--color-muted); font-weight: 500; display: block; }
   .mod-card b { font-family: var(--font-mono); font-size: 24px; font-weight: 600; color: var(--color-ink); margin: 4px 0 2px; display: block; }
@@ -138,7 +154,7 @@
   .toolbar {
     background: var(--color-cotton); border-radius: 12px; padding: 12px 14px;
     display: grid; grid-template-columns: 2fr 1fr 1fr 1.3fr auto auto; gap: 10px; align-items: center;
-    margin-bottom: 18px; box-shadow: var(--edge-stock), 0 1px 3px rgba(28, 25, 23, 0.03);
+    margin-bottom: 18px; box-shadow: var(--edge-stock), 0 1px 3px rgba(15, 23, 42, 0.03);
   }
   @media (max-width: 1100px) { .toolbar { grid-template-columns: 1fr 1fr; } }
   input[type=text], select {
@@ -159,7 +175,7 @@
   }
   .opp-card:hover {
     transform: translateY(-2px);
-    box-shadow: var(--edge-stock), 0 16px 36px -8px rgba(28, 25, 23, 0.14);
+    box-shadow: var(--edge-stock), 0 16px 36px -8px rgba(15, 23, 42, 0.14);
   }
   .opp-top-tags { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
   .tag-etapa {
@@ -237,7 +253,7 @@
     <span id="radarStatus">Monitorando novos imóveis e descontos na base da Caixa Econômica Federal...</span>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
-    <span id="timerBadge" style="font-family:var(--font-mono);font-size:11px;color:#d6cfc7;background:rgba(255,255,255,.08);padding:3px 9px;border-radius:4px">05:00</span>
+    <span id="timerBadge" style="font-family:var(--font-mono);font-size:11px;color: #94a3b8;background:rgba(255,255,255,.08);padding:3px 9px;border-radius:4px">05:00</span>
     <button class="btn-stock" style="height:28px;padding:0 11px;font-size:11.5px" onclick="buscarNovosCaixaAgora()">Sincronizar Agora</button>
   </div>
 </div>
@@ -247,7 +263,7 @@
     <div class="brand-monogram">FA</div>
     <div>
       <span class="brand-title">Fiducia Analytics · Oportunidades &amp; Leilões Caixa</span>
-      <span class="brand-sub">Leilão SFI · Venda Direta Online · Venda Online · Licitação Aberta · Atualizado em 27/11/2026, 00:13:47</span>
+      <span class="brand-sub">Leilão SFI · Venda Direta Online · Venda Online · Licitação Aberta · Atualizado em 27/11/2026, 00:25:23</span>
     </div>
   </a>
   <nav class="nav-strip">
