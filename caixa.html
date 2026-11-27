@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vitrine de Oportunidades Caixa · 12º RI &amp; Leilão SFI</title>
+<title>Fiducia Analytics · Oportunidades &amp; Leilões Caixa</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
@@ -244,10 +244,10 @@
 
 <header>
   <a class="brand" href="index.html">
-    <div class="brand-monogram">12</div>
+    <div class="brand-monogram">FA</div>
     <div>
-      <span class="brand-title">Vitrine de Oportunidades · Caixa Econômica Federal</span>
-      <span class="brand-sub">Leilão SFI · Venda Direta Online · Venda Online · Licitação Aberta · Atualizado em 26/11/2026, 20:34:13</span>
+      <span class="brand-title">Fiducia Analytics · Oportunidades &amp; Leilões Caixa</span>
+      <span class="brand-sub">Leilão SFI · Venda Direta Online · Venda Online · Licitação Aberta · Atualizado em 27/11/2026, 00:09:01</span>
     </div>
   </a>
   <nav class="nav-strip">
@@ -262,7 +262,7 @@
   <!-- SELETOR GROOVE DE ESCOPO -->
   <div class="scope-groove">
     <button class="scope-btn active" id="sc_12ri" onclick="setBase('12ri')">
-      <span>Imóveis do 12º RI à Venda na Caixa</span>
+      <span>Imóveis Monitorados à Venda na Caixa</span>
       <span class="scope-cnt" id="cnt_base_12ri">0</span>
     </button>
     <button class="scope-btn" id="sc_u60" onclick="setBase('u60')">
@@ -721,7 +721,7 @@ async function buscarNovosCaixaAgora() {
 
         const hora = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
         document.getElementById('radarStatus').textContent =
-          `Disponibilidade verificada na Caixa às ${hora} (Base oficial ${j.dataListaCaixa || 'atual'}): ${IMOVEIS_12RI_CAIXA.length} imóveis do 12º RI disponíveis agora` +
+          `Disponibilidade verificada na Caixa às ${hora} (Base oficial ${j.dataListaCaixa || 'atual'}): ${IMOVEIS_12RI_CAIXA.length} imóveis monitorados disponíveis agora` +
           (removidos12ri > 0 ? ` (${removidos12ri} vendidos/encerrados ocultados automaticamente)` : '') +
           ` + ${IMOVEIS_CAIXA_EXTRAS.length} no RJ.`;
         popularBairros();
@@ -731,7 +731,7 @@ async function buscarNovosCaixaAgora() {
     }
   } catch (e) {}
   const hora = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-  document.getElementById('radarStatus').textContent = `Radar ativo (verificado às ${hora}) · ${IMOVEIS_12RI_CAIXA.length} oportunidades do 12º RI + ${IMOVEIS_CAIXA_EXTRAS.length} imóveis no RJ disponíveis na Caixa.`;
+  document.getElementById('radarStatus').textContent = `Radar ativo (verificado às ${hora}) · ${IMOVEIS_12RI_CAIXA.length} oportunidades monitoradas + ${IMOVEIS_CAIXA_EXTRAS.length} imóveis no RJ disponíveis na Caixa.`;
   popularBairros();
   render();
 }
